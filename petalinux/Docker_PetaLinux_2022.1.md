@@ -1,4 +1,4 @@
-# Docker + PetaLinux 2022.1
+# 使用 Docker 製作 PetaLinux 2022.1 的 OS image
 
 ## 安裝 docker
 
@@ -18,7 +18,7 @@ pacman -S docker docker-buildx
 
 ### Ubuntu 20.04
 
-Dockerfile.ubuntu20.04
+[Dockerfile.ubuntu20.04](https://drive.google.com/file/d/19tjlgCNvXRbWFOOb1KQi-rv-QpohIt2d/view?usp=drive_link)
 
 ```Shell
 $ docker build --no-cache -t petalinux.build:20.04 -f Dockerfile.ubuntu20.04 .
@@ -34,7 +34,7 @@ petalinux.build   20.04     0ff139a32236   24 seconds ago   1.05GB
 
 ### Ubuntu 18.04
 
-Dockerfile.ubuntu18.04
+[Dockerfile.ubuntu18.04](https://drive.google.com/file/d/1qWDwN4JP4nXVEr4raIf2Gx30GY7sTqQw/view?usp=drive_link)
 
 ```Shell
 $ docker build --no-cache -t petalinux.build:18.04 -f Dockerfile.ubuntu18.04 .
@@ -60,6 +60,8 @@ docker create -it <image>
 >
 > ```
 > -i, --interactive                      Keep STDIN open even if not attached
+>```
+>```
 > -t, --tty                              Allocate a pseudo-TTY
 > ```
 
@@ -168,19 +170,19 @@ $ docker attach <container_id>
 #### In host
 
 - Create directory /opt/petalinux and change owner
-  - ```Shell
-    sudo mkdir /opt/petalinux
-    sudo chown 1000:1000 /opt/petalinux
-    ```
+  ```Shell
+  sudo mkdir /opt/petalinux
+  sudo chown 1000:1000 /opt/petalinux
+  ```
 - 把下載的 PetaLinux installer `petalinux-v2022.1-04191534-installer.run`複製到 `/opt/petalinux`
-  -  必要時要變更 owner
+    必要時要變更 owner
 
 #### In container
 
 - 執行 `/opt/petalinux/petalinux-v2022.1-04191534-installer.run` 安裝 PetaLinux 到 `/opt/petalinux/2022.1`
-  - ```Shell
-    $ /opt/petalinux/petalinux-v2022.1-04191534-installer.run -d /opt/petalinux/2022.1
-    ```
+  ```Shell
+  $ /opt/petalinux/petalinux-v2022.1-04191534-installer.run -d /opt/petalinux/2022.1
+  ```
 
 ## Build PetaLinux OS image
 
@@ -189,57 +191,52 @@ $ docker attach <container_id>
 - 進入 container
 - 建立工作目錄並進入工作目錄
   -  例如 /opt/petalinux/project
-
-  - ```Shell
-    $ mkdir -p /opt/petalinux/project
-    $ cd /opt/petalinux/project
-    ```
+     ```Shell
+     $ mkdir -p /opt/petalinux/project
+     $ cd /opt/petalinux/project
+     ```
 - 進入 PetaLinux environment
-  - ```Shell
-    $ source /opt/petalinux/2022.1/settings.sh
-    ```
+     ```Shell
+     $ source /opt/petalinux/2022.1/settings.sh
+     ```
 - 建立 ULinkSat SDR 專案
   -  從 Google driver 下載 PetaLinux BSP file  [ULinkSat-SDR.release.bsp](https://drive.google.com/file/d/1G5KvSNHeh9afg2nyq2xjCmeNE-C3sm1R/view?usp=drive_link)
 
-  - ```Shell
-    $ petalinux-create -t project -s ULinkSat-SDR.release.bsp
-    ```
+     ```Shell
+     $ petalinux-create -t project -s ULinkSat-SDR.release.bsp
+     ```
 - Setup system configuration
   -  例如變更 rootfs
+    ![8c359ac0-2a31-452a-8d74-a8caa44cfb78](vx_images/91577677038107.png)
+    ![0bca2b5d-3665-42e8-8028-b996f5deca45](vx_images/367347877218515.png) 
+    ![92369135-aa6c-4ac4-9fa3-368db7ec2e40](vx_images/544126548220077.png)
+    詳細 petalinux-config 操作見 PetaLinux Tools Documentation: Reference Guide (UG1144) 的 [Customizing the Project](https://docs.amd.com/r/2022.1-English/ug1144-petalinux-tools-reference-guide/Customizing-the-Project)
 
-  - ![img](https://o4wpdi04nz5.sg.larksuite.com/space/api/box/stream/download/asynccode/?code=ZmYyOWQ4ZjdjMDYxNzIwOTU2ZTllM2Y2ZjE5YTYxMzhfQUJib2x1Sm1iMkdtUjZUdXFRQTFjQlYxVk9scTlVaGxfVG9rZW46WGFJQWJFNXRVb3FGVlZ4TmxnVGxweEtiZ2hiXzE3MzY1NjY1MzU6MTczNjU3MDEzNV9WNA)
-
-  - ![img](https://o4wpdi04nz5.sg.larksuite.com/space/api/box/stream/download/asynccode/?code=MjYwMGMxMTVkMTQwYWYwZmViYmIwZmQ2YzI3NGUzMzBfZmxGdTNyU0VDYjZxMkZIYWZTaWMyMU1VaXRCZjZyN3FfVG9rZW46QVUzYmJRZlBTb09lUEx4N09VZmxRbnVlZzRmXzE3MzY1NjY1MzU6MTczNjU3MDEzNV9WNA)
-
-  - ![img](https://o4wpdi04nz5.sg.larksuite.com/space/api/box/stream/download/asynccode/?code=MzViZjk4N2E3NGJhZWY2OTliMTFjM2EyNzE2MzA2OTlfa3hxMjVqa1NVaHM3SWg1dHlhMmwzUnhIYlBua1dNVlNfVG9rZW46U2FCZmJYTDZxb3ZxTDl4SVBTSWxwa2NOZ1VoXzE3MzY1NjY1MzU6MTczNjU3MDEzNV9WNA)
-
-  -  詳細 petalinux-config 操作見 PetaLinux Tools Documentation: Reference Guide (UG1144) 的 [Customizing the Project](https://docs.amd.com/r/2022.1-English/ug1144-petalinux-tools-reference-guide/Customizing-the-Project)
-
-  - 
+    <br>
 
   -  若無需變更，可執行以下指令建立 build directory
 
-  - ```Shell
-    $ petalinux-config --silent
-    ```
+     ```Shell
+     $ petalinux-config --silent
+     ```
 - 調整其他設置
   -  例如指定 PetaLinux download cache 來減少 build image 的時間，以下說明用 symbolic link 方式連接 download cache 路徑 `/opt/petalinux/cache/2022.1/downloads`
 
-  - ```Shell
-    $ cd build
-    $ ln -snf /opt/petalinux/cache/2022.1/downloads .
-    $ cd -
-    ```
+     ```Shell
+     $ cd build
+     $ ln -snf /opt/petalinux/cache/2022.1/downloads .
+     $ cd -
+     ```
 - Build project
-  - ```Shell
-    $ petalinux-build
-    ```
+     ```Shell
+     $ petalinux-build
+     ```
 - 建立 image packages
-  - ```Shell
-    $ petalinux-package --force --prebuilt && petalinux-package --force --boot --fsbl images/linux/zynq_fsbl.elf --fpga images/linux/system_top.bit --u-boot images/linux/u-boot.elf
-    ```
+     ```Shell
+     $ petalinux-package --force --prebuilt && petalinux-package --force --boot --fsbl images/linux/zynq_fsbl.elf --fpga images/linux/system_top.bit --u-boot images/linux/u-boot.elf
+     ```
 
-  -  成功後，image packages 在 `images/linux` 目錄
+    成功後，image packages 在 `images/linux` 目錄
 
 ## 燒錄 OS image
 
@@ -259,9 +256,9 @@ $ docker attach <container_id>
 
     -   `petalinux-package --wic` 製作出的 image 有 6GB，要減少燒錄時間可參考 [prog_wic.sh](https://drive.google.com/file/d/1ayfRlSvscsBjNAyenX1XbXIh7-pYShpP/view?usp=drive_link) 利用 bmap file 的方式行之
 
-    - > 注意: 
-      >
-      > 實作發現用 bmap file 會出現開機失敗情形，對策是重新複製 BOOT.BIN 帶 boot partition 及可，[prog_wic.sh](https://drive.google.com/file/d/1ayfRlSvscsBjNAyenX1XbXIh7-pYShpP/view?usp=drive_link) 有進行這個修正
+        > 注意: 
+        >
+        > 實作發現用 bmap file 會出現開機失敗情形，對策是重新複製 BOOT.BIN 帶 boot partition 及可，[prog_wic.sh](https://drive.google.com/file/d/1ayfRlSvscsBjNAyenX1XbXIh7-pYShpP/view?usp=drive_link) 有進行這個修正
 
 - JFFS2
 
@@ -270,129 +267,127 @@ $ docker attach <container_id>
 
     -   若僅切換 ULinkSat SDR 爲 JFFS2 boot，可參考以下 shell script
 
-    - ```Shell
-      #!/bin/bash
-      
-      msg_info()
-      {
-              echo -e "\e[0;32m${1}\e[0m"
-      }
-      
-      msg_error()
-      {
-              echo -e "[ERROR] \e[0;31m${1}\e[0m"
-      }
-      
-      error_exit() {
-              msg_error "${1}"
-              false
-              exit 1
-      }
-      
-      disable_all_rootfs() {
-              msg_info "---->>> Disable all rootfs types"
-              for f in ${FS_LST}; do
-                      f="CONFIG_SUBSYSTEM_ROOTFS_${f}"
-                      [[ ${TEST} -eq 0 ]] || echo "${f}"
-                      sed ${SED_OPTS} "s/.*${f}.*/# ${f} is not set/g" ${SYSCONF}
-              done
-      }
-      
-      disable_all_jffs2_erase_size() {
-              local size_lst="4 8 16 32 64 128 256 512"
-              msg_info "---->>> Disable all JFFS2 erase sizes"
-              for s in ${size_lst}; do
-                      s="CONFIG_SUBSYSTEM_JFFS2_ERASE_SIZE_${s}"
-                      [[ ${TEST} -eq 0 ]] || echo "${s}"
-                      if [[ $(grep ${s} <<< ${SYSCONF}) ]]; then
-                              sed ${SED_OPTS} "s/.*${s}.*/# ${s} is not set/g" ${SYSCONF}
-                      else
-                              echo "# ${s} is not set" >>  ${SYSCONF}
-                      fi
-              done
+        ```Shell
+        #!/bin/bash
+        
+        msg_info()
+        {
+            echo -e "\e[0;32m${1}\e[0m"
+        }
+        
+        msg_error()
+        {
+            echo -e "[ERROR] \e[0;31m${1}\e[0m"
+        }
+        
+        error_exit() {
+            msg_error "${1}"
+            false
+            exit 1
+        }
+        
+        disable_all_rootfs() {
+            msg_info "---->>> Disable all rootfs types"
+            for f in ${FS_LST}; do
+                f="CONFIG_SUBSYSTEM_ROOTFS_${f}"
+                [[ ${TEST} -eq 0 ]] || echo "${f}"
+                sed ${SED_OPTS} "s/.*${f}.*/# ${f} is not set/g" ${SYSCONF}
+            done
+        }
+        
+        disable_all_jffs2_erase_size() {
+            local size_lst="4 8 16 32 64 128 256 512"
+            msg_info "---->>> Disable all JFFS2 erase sizes"
+            for s in ${size_lst}; do
+                s="CONFIG_SUBSYSTEM_JFFS2_ERASE_SIZE_${s}"
+                [[ ${TEST} -eq 0 ]] || echo "${s}"
+                if [[ $(grep ${s} <<< ${SYSCONF}) ]]; then
+                    sed ${SED_OPTS} "s/.*${s}.*/# ${s} is not set/g" ${SYSCONF}
+                else
+                    echo "# ${s} is not set" >>  ${SYSCONF}
+                fi
+            done
               
-              unset size_lst
-      }
-      
-      chg_rootfs() {
-              [[ -z ${FS_TYPE} ]] && error_exit "Rootfs type not assign."
-      
-              FS_TYPE=$(echo ${FS_TYPE} | tr '[:lower:]' '[:upper:]')
-              msg_info "---->>> Set rootfs to ${FS_TYPE}"
-      
-              FS_LST="INITRAMFS INITRD JFFS2 UBIFS EXT4 OTHER"
-              FS_FOUND=0
-              for f in ${FS_LST}; do
-                      [[ ${f} != ${FS_TYPE} ]] && continue
-                      FS_FOUND=1
-                      break
-              done
-      
-              [[ ${FS_FOUND} -eq 0 ]] && error_exit "Rootfs ${FS_TYPE} not supported"
-      
-              # Disable all rootfs types
-              disable_all_rootfs
-      
-      
-              msg_info "---->>> Enable rootfs ${FS_TYPE}"
-              ERASE_SIZE="4"
-              f="CONFIG_SUBSYSTEM_ROOTFS_${FS_TYPE}"
-              sed ${SED_OPTS} "s/.*${f}.*/${f}=y/g" ${SYSCONF} && sync || error_exit "Failed to change rootfs type"
-              case ${FS_TYPE} in
-                      'JFFS2')
-                              disable_all_jffs2_erase_size
-                              msg_info "---->>> Set JFFS2 erase size to ${ERASE_SIZE}K"
-                              sed ${SED_OPTS} "s/.*CONFIG_SUBSYSTEM_JFFS2_ERASE_SIZE_${ERASE_SIZE}.*/CONFIG_SUBSYSTEM_JFFS2_ERASE_SIZE_${ERASE_SIZE}=y/g" ${SYSCONF} && sync || error_exit "Failed to change JFFS erase size" 
-                              ;;
-              esac
-      
-              msg_info "---->>> Update system config"
-              petalinux-config --silent || error_exit "Failed to update system config"
-      }
-      
-      print_usage() {
-              echo "Usage: $(basename $0) [-r <rootfs>] [-t]"
-              exit 0
-      }
-      
-      cmdpath=$(dirname $(readlink -f $0))
-      
-      while getopts "r:m:qth" arg
-      do
-              case $arg in
-                      r)
-                              FS_TYPE=$(tr '[:upper:]' '[:lower:]' <<< ${OPTARG})
-                              ;;
-                      t)
-                              TEST=1
-                              ;;
-                      ?|h)
-                              print_usage
-                              ;;
-              esac
-      done
-      shift $((OPTIND - 1))
-      PROJDIR="$@"
-      
-      [[ -z ${PROJDIR} ]] && PROJDIR="."
-      [[ -d ${PROJDIR} ]] || error_exit "Directory ${PROJDIR} not found"
-      
-      TEST=0
-      SED_OPTS="-e"
-      [[ ${TEST} -eq 0 ]] && SED_OPTS="-i ${SED_OPTS}"
-      
-      SYSCONF="${PROJDIR}/project-spec/configs/config"
-      
-      [[ -z ${FS_TYPE} ]] || chg_rootfs
-      ```
+            unset size_lst
+        }
+        
+        chg_rootfs() {
+            [[ -z ${FS_TYPE} ]] && error_exit "Rootfs type not assign."
+        
+            FS_TYPE=$(echo ${FS_TYPE} | tr '[:lower:]' '[:upper:]')
+            msg_info "---->>> Set rootfs to ${FS_TYPE}"
+        
+            FS_LST="INITRAMFS INITRD JFFS2 UBIFS EXT4 OTHER"
+            FS_FOUND=0
+            for f in ${FS_LST}; do
+                [[ ${f} != ${FS_TYPE} ]] && continue
+                FS_FOUND=1
+                break
+            done
+        
+            [[ ${FS_FOUND} -eq 0 ]] && error_exit "Rootfs ${FS_TYPE} not supported"
+        
+            # Disable all rootfs types
+            disable_all_rootfs
+            msg_info "---->>> Enable rootfs ${FS_TYPE}"
+            ERASE_SIZE="4"
+            f="CONFIG_SUBSYSTEM_ROOTFS_${FS_TYPE}"
+            sed ${SED_OPTS} "s/.*${f}.*/${f}=y/g" ${SYSCONF} && sync || error_exit "Failed to change rootfs type"
+            case ${FS_TYPE} in
+                'JFFS2')
+                    disable_all_jffs2_erase_size
+                    msg_info "---->>> Set JFFS2 erase size to ${ERASE_SIZE}K"
+                    sed ${SED_OPTS} "s/.*CONFIG_SUBSYSTEM_JFFS2_ERASE_SIZE_${ERASE_SIZE}.*/CONFIG_SUBSYSTEM_JFFS2_ERASE_SIZE_${ERASE_SIZE}=y/g" ${SYSCONF} && sync || error_exit "Failed to change JFFS erase size" 
+                    ;;
+            esac
+          
+            msg_info "---->>> Update system config"
+            petalinux-config --silent || error_exit "Failed to update system config"
+        }
+          
+        print_usage() {
+            echo "Usage: $(basename $0) [-r <rootfs>] [-t]"
+            exit 0
+        }
+          
+        cmdpath=$(dirname $(readlink -f $0))
+          
+        while getopts "r:m:qth" arg
+        do
+            case $arg in
+                r)
+                    FS_TYPE=$(tr '[:upper:]' '[:lower:]' <<< ${OPTARG})
+                    ;;
+                t)
+                    TEST=1
+                    ;;
+                ?|h)
+                    print_usage
+                    ;;
+            esac
+        done
+        shift $((OPTIND - 1))
+        PROJDIR="$@"
+          
+        [[ -z ${PROJDIR} ]] && PROJDIR="."
+        [[ -d ${PROJDIR} ]] || error_exit "Directory ${PROJDIR} not found"
+          
+        TEST=0
+        SED_OPTS="-e"
+        [[ ${TEST} -eq 0 ]] && SED_OPTS="-i ${SED_OPTS}"
+          
+        SYSCONF="${PROJDIR}/project-spec/configs/config"
+          
+        [[ -z ${FS_TYPE} ]] || chg_rootfs
+    
   - 燒錄 JFFS2 
     -   不建議用 PetaLinux Tools Documentation: Reference Guide (UG1144) 的方式燒錄，用 Vitis 比較穩妥
-
+  
     -   Vitis 不用安裝在 docker container，可安裝在其他平臺
 
     - 安裝 Vitis
       -    燒錄 flash 需要 Xilinx 的 xsct，PetaLinux 沒有，須安裝 Vitis
-
+  
       - 從 https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/vitis.html 下載 Vitis installer
       - 安裝方式請自行參考 Vitis Release Notes And Installation Guide (UG1742) 的 [Vitis Software Platform Installation](https://docs.amd.com/r/en-US/ug1742-vitis-release-notes/Vitis-Software-Platform-Installation)
     - 燒錄
