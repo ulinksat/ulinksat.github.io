@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="generator" content="VNote">
+
+    <title>Docker_PetaLinux_2022.1_2</title>
+
+    <style type="text/css">
+    div.code-toolbar > div.toolbar {
+    display: none;
+}
+
+    </style>
+
+    <style type="text/css">
+    *,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.container-fluid {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.col, .col-1, .col-10, .col-11, .col-12, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-auto, .col-lg, .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-auto, .col-md, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-auto, .col-sm, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-auto, .col-xl, .col-xl-1, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-auto {
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.col-12 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+@media (min-width: 768px) {
+    .col-md-3 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 25%;
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+}
+
+@media (min-width: 768px) {
+    .col-md-9 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 75%;
+        flex: 0 0 75%;
+        max-width: 75%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .col-xl-2 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 16.666667%;
+        flex: 0 0 16.666667%;
+        max-width: 16.666667%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .col-xl-10 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 83.333333%;
+        flex: 0 0 83.333333%;
+        max-width: 83.333333%;
+    }
+}
+
+@media (min-width: 768px) {
+    .pt-md-3, .py-md-3 {
+        padding-top: 1rem!important;
+    }
+}
+
+@media (min-width: 768px) {
+    .pb-md-3, .py-md-3 {
+        padding-bottom: 1rem!important;
+    }
+}
+
+@media (min-width: 768px) {
+    .pl-md-5, .px-md-5 {
+        padding-left: 3rem!important;
+    }
+}
+
+.d-none {
+    display: none!important;
+}
+
+@media (min-width: 1200px) {
+    .d-xl-block {
+        display: block!important;
+    }
+}
+
+@media (min-width: 768px) {
+    .d-md-block {
+        display: block!important;
+    }
+}
+
+.bd-content {
+    -webkit-box-ordinal-group: 1;
+    -ms-flex-order: 0;
+    order: 0;
+}
+
+.bd-toc {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 4rem;
+    height: calc(100vh - 10rem);
+    overflow-y: auto;
+}
+
+.bd-toc {
+    -webkit-box-ordinal-group: 2;
+    -ms-flex-order: 1;
+    order: 1;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    font-size: .875rem;
+}
+
+.section-nav {
+    padding-left: 0;
+}
+
+.section-nav ul {
+    font-size: .875rem;
+    list-style-type: none;
+}
+
+.section-nav li {
+    font-size: .875rem;
+}
+
+.section-nav a {
+    color: inherit !important;
+    white-space: nowrap;
+}
+
+.row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+@media (min-width: 1200px) {
+    .flex-xl-nowrap {
+        flex-wrap: nowrap !important;
+    }
+}
+
+#floating-button {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background: #00897B;
+    position: fixed;
+    top: .5rem;
+    right: .5rem;
+    cursor: pointer;
+    box-shadow: 0px 2px 5px #666;
+}
+
+#floating-button .more {
+    color: #F5F5F5;
+    position: absolute;
+    top: 0;
+    display: block;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    line-height: 2.5rem;
+    font-size: 2rem;
+    font-family: 'monospace';
+    font-weight: 300;
+}
+
+.hide-none {
+    display: none !important;
+}
+
+.col-expand {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 100% !important;
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    padding-right: 3rem !important;
+}
+
+.outline-bold {
+    font-weight: bolder !important;
+}
+
+@media print {
+    #floating-button {
+        display: none !important;
+    }
+}
+
+
+    #vx-content.vx-section-number, #vx-content.vx-section-number-2 h1, #vx-content.vx-section-number-3 h1, #vx-content.vx-section-number-3 h2 { counter-reset: section1 0 section2 0 section3 0 section4 0 section5 0 section6 0; }
+#vx-content.vx-section-number-1 h1, #vx-content.vx-section-number-2 h2, #vx-content.vx-section-number-3 h3 { counter-reset: section2 0 section3 0 section4 0 seciton5 0 section6 0; }
+#vx-content.vx-section-number-1 h2, #vx-content.vx-section-number-2 h3, #vx-content.vx-section-number-3 h4 { counter-reset: section3 0 section4 0 section5 0 section6 0; }
+#vx-content.vx-section-number-1 h3, #vx-content.vx-section-number-2 h4, #vx-content.vx-section-number-3 h5 { counter-reset: section4 0 section5 0 section6 0; }
+#vx-content.vx-section-number-1 h4, #vx-content.vx-section-number-2 h5 { counter-reset: section5 0 section6 0; }
+#vx-content.vx-section-number-1 h5 { counter-reset: section6 0; }
+#vx-content.vx-section-number-1 h1::before, #vx-content.vx-section-number-2 h2::before, #vx-content.vx-section-number-3 h3::before { counter-increment: section1 1; content: counter(section1) ". "; }
+#vx-content.vx-section-number-1 h2::before, #vx-content.vx-section-number-2 h3::before, #vx-content.vx-section-number-3 h4::before { counter-increment: section2 1; content: counter(section1) "." counter(section2) ". "; }
+#vx-content.vx-section-number-1 h3::before, #vx-content.vx-section-number-2 h4::before, #vx-content.vx-section-number-3 h5::before { counter-increment: section3 1; content: counter(section1) "." counter(section2) "." counter(section3) ". "; }
+#vx-content.vx-section-number-1 h4::before, #vx-content.vx-section-number-2 h5::before, #vx-content.vx-section-number-3 h6::before { counter-increment: section4 1; content: counter(section1) "." counter(section2) "." counter(section3) "." counter(section4) ". "; }
+#vx-content.vx-section-number-1 h5::before, #vx-content.vx-section-number-2 h6::before { counter-increment: section5 1; content: counter(section1) "." counter(section2) "." counter(section3) "." counter(section4) "." counter(section5) ". "; }
+#vx-content.vx-section-number-1 h6::before { counter-increment: section6 1; content: counter(section1) "." counter(section2) "." counter(section3) "." counter(section4) "." counter(section5) "." counter(section6) ". "; }
+#vx-content.vx-constrain-image-width img, #vx-content.vx-constrain-image-width div.vx-plantuml-graph > svg, #vx-content.vx-constrain-image-width div.vx-mermaid-graph, #vx-content.vx-constrain-image-width div.vx-flowchartjs-graph, #vx-content.vx-constrain-image-width div.vx-wavedrom-graph { max-width: 100% !important; height: auto !important; }
+figure { margin: auto; }
+figcaption { font-style: italic; }
+#vx-content.vx-image-align-center figure { text-align: center; }
+#vx-content.vx-image-align-center figcaption { text-align: center; }
+#vx-content.vx-image-align-center div.vx-plantuml-graph, #vx-content.vx-image-align-center div.vx-mermaid-graph, #vx-content.vx-image-align-center div.vx-flowchartjs-graph, #vx-content.vx-image-align-center div.vx-wavedrom-graph { margin-left: auto; margin-right: auto; }
+.vx-table-of-contents ol { list-style: none; }
+#vx-content.vx-section-number-1 .vx-table-of-contents ol { counter-reset: toc 0; }
+#vx-content.vx-section-number-1 .vx-table-of-contents ol li { counter-increment: toc 1; }
+#vx-content.vx-section-number-1 .vx-table-of-contents ol li::before { content: counters(toc, ".") ". "; font-family: cursive; }
+#vx-content.vx-section-number-2 .vx-table-of-contents > ol > li ol { counter-reset: toc 0; }
+#vx-content.vx-section-number-2 .vx-table-of-contents > ol > li ol li { counter-increment: toc 1; }
+#vx-content.vx-section-number-2 .vx-table-of-contents > ol > li ol li::before { content: counters(toc, ".") ". "; font-family: cursive; }
+#vx-content.vx-section-number-3 .vx-table-of-contents > ol > li > ol > li ol { counter-reset: toc 0; }
+#vx-content.vx-section-number-3 .vx-table-of-contents > ol > li > ol > li ol li { counter-increment: toc 1; }
+#vx-content.vx-section-number-3 .vx-table-of-contents > ol > li > ol > li ol li::before { content: counters(toc, ".") ". "; font-family: cursive; }
+.vx-header-anchor { visibility: hidden; vertical-align: middle; }
+.vx-header-anchor::after { content: attr(vx-data-anchor-icon); }
+#vx-content h1:hover .vx-header-anchor, #vx-content h2:hover .vx-header-anchor, #vx-content h3:hover .vx-header-anchor, #vx-content h4:hover .vx-header-anchor, #vx-content h5:hover .vx-header-anchor, #vx-content h6:hover .vx-header-anchor { visibility: visible; vertical-align: middle; }
+#vx-content.vx-indent-first-line p { text-indent: 2em; }
+body.vx-transparent-background { background-color: transparent !important; }
+#vx-content.vx-nonscrollable pre { white-space: pre-wrap !important; word-break: break-all !important; overflow: hidden !important; }
+#vx-content.vx-nonscrollable pre code { white-space: pre-wrap !important; word-break: break-all !important; }
+#vx-content.vx-nonscrollable code, #vx-content.vx-nonscrollable a { word-break: break-all !important; }
+body { margin: 0px auto; font-family: "YaHei Consolas Hybrid", "Noto Sans", "Helvetica Neue", "Segoe UI", Helvetica, Tahoma, Arial, Geneva, Georgia, Palatino, "Times New Roman", 冬青黑体, "Microsoft YaHei", 微软雅黑, "Microsoft YaHei UI", "WenQuanYi Micro Hei", 文泉驿雅黑, Dengxian, 等线体, STXihei, 华文细黑, "Liberation Sans", "Droid Sans", NSimSun, 新宋体, SimSun, 宋体, "Apple Color Emoji", "Segoe UI Emoji"; color: rgb(34, 34, 34); line-height: 1.5; padding: 16px; background-color: rgb(255, 255, 255); font-size: 16px; }
+h1, h2, h3, h4, h5, h6 { color: rgb(34, 34, 34); font-weight: bold; margin-top: 20px; margin-bottom: 10px; padding: 0px; }
+p { padding: 0px; margin-bottom: 16px; }
+h1 { font-size: 26px; }
+h2 { font-size: 24px; }
+h3 { font-size: 22px; }
+h4 { font-size: 20px; }
+h5 { font-size: 19px; }
+h6 { font-size: 18px; }
+a { color: rgb(0, 153, 255); margin: 0px; padding: 0px; vertical-align: baseline; text-decoration: none; word-break: break-word; }
+a:hover { text-decoration: underline; }
+a:visited { color: rgb(128, 0, 128); }
+ul, ol { padding: 0px 0px 0px 24px; }
+li { line-height: 24px; }
+li ul, li ol { margin-left: 16px; }
+p, ul, ol { font-size: 16px; line-height: 24px; }
+pre { display: block; overflow: auto hidden; tab-size: 4; }
+code { font-family: "YaHei Consolas Hybrid", Consolas, Monaco, "Andale Mono", monospace, "Courier New"; color: rgb(142, 36, 170); word-break: break-word; }
+pre code { display: block; padding-left: 0.5em; padding-right: 0.5em; color: rgb(34, 34, 34); background-color: rgb(224, 224, 224); line-height: 1.5; font-family: "YaHei Consolas Hybrid", Consolas, Monaco, "Andale Mono", monospace, "Courier New"; white-space: pre; tab-size: 4; }
+aside { display: block; float: right; width: 390px; }
+blockquote { color: rgb(102, 102, 102); border-left: 0.5em solid rgb(122, 122, 122); padding: 0px 1em; margin-left: 0px; }
+blockquote p { color: rgb(102, 102, 102); }
+hr { display: block; text-align: left; margin: 1em 0px; border: none; height: 2px; background-color: rgb(153, 153, 153); }
+table { padding: 0px; margin: 1rem 0.5rem; border-collapse: collapse; }
+table tr { border-top: 1px solid rgb(204, 204, 204); background-color: rgb(255, 255, 255); margin: 0px; padding: 0px; }
+table tr:hover { background-color: rgb(218, 218, 218); }
+table tr th { font-weight: bold; border: 1px solid rgb(204, 204, 204); margin: 0px; padding: 6px 13px; }
+table tr td { border: 1px solid rgb(204, 204, 204); margin: 0px; padding: 6px 13px; }
+table tr th :first-child, table tr td :first-child { margin-top: 0px; }
+table tr th :last-child, table tr td :last-child { margin-bottom: 0px; }
+div.vx-mermaid-graph { margin: 16px 0px; overflow-y: hidden; }
+div.vx-flowchartjs-graph { padding: 0px 5px; margin: 16px 0px; width: fit-content; overflow: hidden; }
+div.vx-wavedrom-graph { padding: 0px 5px; margin: 16px 0px; width: fit-content; overflow: hidden; }
+div.vx-plantuml-graph { padding: 5px 5px 0px; margin: 16px 0px; width: fit-content; overflow: hidden; }
+::selection { background-color: rgb(25, 118, 210); color: rgb(255, 255, 255); }
+#vx-content span.vx-search-match { color: rgb(34, 34, 34); background-color: rgb(77, 182, 172); }
+#vx-content span.vx-current-search-match { color: rgb(34, 34, 34); background-color: rgb(102, 187, 106); }
+code[class*="language-"], pre[class*="language-"] { color: black; background: none; font-size: 1em; text-align: left; white-space: pre; word-spacing: normal; word-break: normal; overflow-wrap: normal; line-height: 1.5; tab-size: 4; hyphens: none; }
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection, code[class*="language-"]::selection, code[class*="language-"] ::selection { text-shadow: none; background-color: rgb(25, 118, 210); color: rgb(255, 255, 255); }
+@media print {
+  code[class*="language-"], pre[class*="language-"] { text-shadow: none; }
+}
+pre[class*="language-"] { padding: 1em; margin: 0.5em 0px; overflow: auto; }
+:not(pre) > code[class*="language-"], pre[class*="language-"] { background: rgb(237, 232, 228); }
+:not(pre) > code[class*="language-"] { padding: 0.1em; border-radius: 0.3em; white-space: normal; }
+.token.comment, .token.prolog, .token.doctype, .token.cdata { color: slategray; }
+.token.punctuation { color: rgb(153, 153, 153); }
+.token.namespace { opacity: 0.7; }
+.token.property, .token.tag, .token.boolean, .token.number, .token.constant, .token.symbol, .token.deleted { color: rgb(153, 0, 85); }
+.token.selector, .token.attr-name, .token.string, .token.char, .token.builtin, .token.inserted { color: rgb(102, 153, 0); }
+.token.operator, .token.entity, .token.url, .language-css .token.string, .style .token.string { color: rgb(154, 110, 58); }
+.token.atrule, .token.attr-value, .token.keyword { color: rgb(0, 119, 170); }
+.token.function, .token.class-name { color: rgb(221, 74, 104); }
+.token.regex, .token.important, .token.variable { color: rgb(238, 153, 0); }
+.token.important, .token.bold { font-weight: bold; }
+.token.italic { font-style: italic; }
+.token.entity { cursor: help; }
+pre[class*="language-"].line-numbers { position: relative; padding-left: 3.8em; counter-reset: linenumber 0; }
+pre[class*="language-"].line-numbers > code { position: relative; white-space: inherit; }
+.line-numbers .line-numbers-rows { position: absolute; pointer-events: none; top: 0px; font-size: 100%; left: -3.8em; width: 3em; letter-spacing: -1px; border-right: 1px solid rgb(153, 153, 153); user-select: none; }
+.line-numbers-rows > span { display: block; counter-increment: linenumber 1; }
+.line-numbers-rows > span::before { content: counter(linenumber); color: rgb(153, 153, 153); display: block; padding-right: 0.8em; text-align: right; }
+div.code-toolbar { position: relative; }
+div.code-toolbar > .toolbar { position: absolute; top: 0.3em; right: 0.2em; transition: opacity 0.3s ease-in-out 0s; opacity: 0; }
+div.code-toolbar:hover > .toolbar { opacity: 1; }
+div.code-toolbar:focus-within > .toolbar { opacity: 1; }
+div.code-toolbar > .toolbar .toolbar-item { display: inline-block; }
+div.code-toolbar > .toolbar a { cursor: pointer; }
+div.code-toolbar > .toolbar button { background: none; border: 0px; color: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; font-family: inherit; line-height: normal; overflow: visible; padding: 0px; user-select: none; }
+div.code-toolbar > .toolbar a, div.code-toolbar > .toolbar button, div.code-toolbar > .toolbar span { color: rgb(187, 187, 187); font-size: 0.8em; padding: 0px 0.5em; background: rgba(224, 224, 224, 0.2); box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 0px 0px; border-radius: 0.5em; }
+div.code-toolbar > .toolbar a:hover, div.code-toolbar > .toolbar a:focus, div.code-toolbar > .toolbar button:hover, div.code-toolbar > .toolbar button:focus, div.code-toolbar > .toolbar span:hover, div.code-toolbar > .toolbar span:focus { color: inherit; text-decoration: none; }
+.vx-image-view-image { transition: all 0.3s ease 0s; }
+.vx-modal-box { display: none; position: fixed; z-index: 1000; padding-top: 50px; left: 0px; top: 0px; width: 100%; height: 100%; overflow: hidden; background-color: rgba(51, 56, 66, 0.85); }
+.vx-modal-content { margin: auto; display: block; width: auto; height: auto; cursor: move; }
+.vx-modal-content { animation-name: zoom; animation-duration: 0.6s; }
+@-webkit-keyframes zoom { 
+  0% { transform: scale(0); }
+  100% { transform: scale(1); }
+}
+@keyframes zoom { 
+  0% { transform: scale(0); }
+  100% { transform: scale(1); }
+}
+span.vx-modal-close { position: absolute; z-index: 1000; top: 15px; right: 35px; color: rgb(171, 178, 191); font-size: 40px; font-weight: bold; transition: all 0.3s ease 0s; }
+span.vx-modal-close:hover, span.vx-modal-close:focus { color: rgb(215, 218, 224); text-decoration: none; cursor: pointer; }
+ul.contains-task-list { list-style-type: none; }
+.vx-alert { position: relative; padding: 0.75rem 1.25rem; margin-bottom: 1rem; border: 1px solid transparent; border-radius: 0.25rem; }
+.alert-primary { color: rgb(0, 64, 133); background-color: rgb(204, 229, 255); border-color: rgb(184, 218, 255); }
+.alert-secondary { color: rgb(56, 61, 65); background-color: rgb(226, 227, 229); border-color: rgb(214, 216, 219); }
+.alert-success { color: rgb(21, 87, 36); background-color: rgb(212, 237, 218); border-color: rgb(195, 230, 203); }
+.alert-info { color: rgb(12, 84, 96); background-color: rgb(209, 236, 241); border-color: rgb(190, 229, 235); }
+.alert-warning { color: rgb(133, 100, 4); background-color: rgb(255, 243, 205); border-color: rgb(255, 238, 186); }
+.alert-danger { color: rgb(114, 28, 36); background-color: rgb(248, 215, 218); border-color: rgb(245, 198, 203); }
+.alert-light { color: rgb(129, 129, 130); background-color: rgb(254, 254, 254); border-color: rgb(253, 253, 254); }
+.alert-dark { color: rgb(27, 30, 33); background-color: rgb(214, 216, 217); border-color: rgb(198, 200, 202); }
+
+    </style>
+
+    <script type="text/javascript">
+        var vxOutlineToc = [];
+
+var setVisible = function(node, visible) {
+    var cl = 'hide-none';
+    if (visible) {
+        node.classList.remove(cl);
+    } else {
+        node.classList.add(cl);
+    }
+};
+
+var isVisible = function(node) {
+    var cl = 'hide-none';
+    return !node.classList.contains(cl);
+};
+
+var setPostContentExpanded = function(node, expanded) {
+    var cl = 'col-expand';
+    if (expanded) {
+        node.classList.add(cl);
+    } else {
+        node.classList.remove(cl);
+    }
+};
+
+var setOutlinePanelVisible = function(visible) {
+    var outlinePanel = document.getElementById('outline-panel');
+    var postContent = document.getElementById('post-content');
+
+    setVisible(outlinePanel, visible);
+    setPostContentExpanded(postContent, !visible);
+};
+
+var isOutlinePanelVisible = function() {
+    var outlinePanel = document.getElementById('outline-panel');
+    return isVisible(outlinePanel);
+};
+
+window.addEventListener('load', function() {
+    var outlinePanel = document.getElementById('outline-panel');
+    outlinePanel.style.display = 'initial';
+
+    var floatingContainer = document.getElementById('container-floating');
+    floatingContainer.style.display = 'initial';
+
+    var outlineContent = document.getElementById('outline-content');
+    var postContent = document.getElementById('post-content');
+
+    // Escape @text to Html.
+    var escapeHtml = function(text) {
+        var map = {
+            '&': '&amp;',
+            '<': '&lt;',
+            '>': '&gt;',
+            '"': '&quot;',
+            "'": '&#039;'
+        };
+
+        return text.replace(/[&<>"']/g, function(m) { return map[m]; });
+    }
+
+    // Fetch the outline.
+    var headers = postContent.querySelectorAll("h1, h2, h3, h4, h5, h6");
+    vxOutlineToc = [];
+    for (var i = 0; i < headers.length; ++i) {
+        var header = headers[i];
+
+        vxOutlineToc.push({
+            level: parseInt(header.tagName.substr(1)),
+            anchor: header.id,
+            title: escapeHtml(header.textContent)
+        });
+    }
+
+    if (vxOutlineToc.length == 0) {
+        setOutlinePanelVisible(false);
+        setVisible(floatingContainer, false);
+        return;
+    }
+
+    var baseLevel = baseLevelOfToc(vxOutlineToc);
+    var tocTree = tocToTree(toPerfectToc(vxOutlineToc, baseLevel), baseLevel);
+
+    outlineContent.innerHTML = tocTree;
+    setOutlinePanelVisible(true);
+    setVisible(floatingContainer, true);
+});
+
+// Return the topest level of @vxOutlineToc, starting from 1.
+var baseLevelOfToc = function(p_toc) {
+    var level = -1;
+    for (i in p_toc) {
+        if (level == -1) {
+            level = p_toc[i].level;
+        } else if (level > p_toc[i].level) {
+            level = p_toc[i].level;
+        }
+    }
+
+    if (level == -1) {
+        level = 1;
+    }
+
+    return level;
+};
+
+// Handle wrong title levels, such as '#' followed by '###'
+var toPerfectToc = function(p_toc, p_baseLevel) {
+    var i;
+    var curLevel = p_baseLevel - 1;
+    var perfToc = [];
+    for (i in p_toc) {
+        var item = p_toc[i];
+
+        // Insert empty header.
+        while (item.level > curLevel + 1) {
+            curLevel += 1;
+            var tmp = { level: curLevel,
+                        anchor: '',
+                        title: '[EMPTY]'
+                      };
+            perfToc.push(tmp);
+        }
+
+        perfToc.push(item);
+        curLevel = item.level;
+    }
+
+    return perfToc;
+};
+
+var itemToHtml = function(item) {
+    return '<a href="#' + item.anchor + '" title="' + item.title + '" data="' + item.anchor + '">' + item.title + '</a>';
+};
+
+// Turn a perfect toc to a tree using <ul>
+var tocToTree = function(p_toc, p_baseLevel) {
+    var i;
+    var front = '<li>';
+    var ending = ['</li>'];
+    var curLevel = p_baseLevel;
+    for (i in p_toc) {
+        var item = p_toc[i];
+        if (item.level == curLevel) {
+            front += '</li>';
+            front += '<li>';
+            front += itemToHtml(item);
+        } else if (item.level > curLevel) {
+            // assert(item.level - curLevel == 1)
+            front += '<ul>';
+            ending.push('</ul>');
+            front += '<li>';
+            front += itemToHtml(item);
+            ending.push('</li>');
+            curLevel = item.level;
+        } else {
+            while (item.level < curLevel) {
+                var ele = ending.pop();
+                front += ele;
+                if (ele == '</ul>') {
+                    curLevel--;
+                }
+            }
+            front += '</li>';
+            front += '<li>';
+            front += itemToHtml(item);
+        }
+    }
+    while (ending.length > 0) {
+        front += ending.pop();
+    }
+    front = front.replace("<li></li>", "");
+    front = '<ul>' + front + '</ul>';
+    return front;
+};
+
+var toggleMore = function() {
+    if (vxOutlineToc.length == 0) {
+        return;
+    }
+
+    var p = document.getElementById('floating-more');
+    if (isOutlinePanelVisible()) {
+        p.textContent = '<';
+        setOutlinePanelVisible(false);
+    } else {
+        p.textContent = '>';
+        setOutlinePanelVisible(true);
+    }
+};
+
+window.addEventListener('scroll', function() {
+    if (vxOutlineToc.length == 0 || !isOutlinePanelVisible()) {
+        return;
+    }
+
+    var postContent = document.getElementById('post-content');
+    var scrollTop = document.documentElement.scrollTop
+                    || document.body.scrollTop
+                    || window.pageYOffset;
+    var eles = postContent.querySelectorAll("h1, h2, h3, h4, h5, h6");
+
+    if (eles.length == 0) {
+        return;
+    }
+
+    var idx = -1;
+    var biaScrollTop = scrollTop + 50;
+    for (var i = 0; i < eles.length; ++i) {
+        if (biaScrollTop >= eles[i].offsetTop) {
+            idx = i;
+        } else {
+            break;
+        }
+    }
+
+    var header = '';
+    if (idx != -1) {
+        header = eles[idx].id;
+    }
+
+    highlightItemOnlyInOutline(header);
+});
+
+var highlightItemOnlyInOutline = function(id) {
+    var cl = 'outline-bold';
+    var outlineContent = document.getElementById('outline-content');
+    var eles = outlineContent.querySelectorAll("a");
+    var target = null;
+    for (var i = 0; i < eles.length; ++i) {
+        var ele = eles[i];
+        if (ele.getAttribute('data') == id) {
+            target = ele;
+            ele.classList.add(cl);
+        } else {
+            ele.classList.remove(cl);
+        }
+    }
+
+    // TODO: scroll target into view within the outline panel scroll area.
+};
+
+    </script>
+
+    <!-- VX_SCRIPTS_PLACEHOLDER -->
+
+    <!-- VX_HEAD_PLACEHOLDER -->
+</head>
+<body class="vx-transparent-background">
+    <div class="container-fluid">
+    <div class="row flex-xl-nowrap">
+        <!-- VX_OUTLINE_PANEL_START -->
+        <div id="outline-panel" style="display:none;" class="d-none d-md-block d-xl-block col-md-3 col-xl-2 bd-toc">
+            <div id="outline-content" class="section-nav"></div>
+        </div>
+        <!-- VX_OUTLINE_PANEL_END -->
+
+        <div id="post-content" class="col-12 col-md-9 col-xl-10 py-md-3 pl-md-5 bd-content">
+        <div id="vx-content" class="vx-constrain-image-width line-numbers"><h1 id="docker-+-petalinux-2022.1" class="source-line" data-source-line="0">Docker + PetaLinux 2022.1<a class="vx-header-anchor" href="#docker-+-petalinux-2022.1" vx-data-anchor-icon="¶"></a></h1>
+<h2 id="安裝-docker" class="source-line" data-source-line="2">安裝 docker<a class="vx-header-anchor" href="#安裝-docker" vx-data-anchor-icon="¶"></a></h2>
+<h3 id="ubuntu" class="source-line" data-source-line="4">Ubuntu<a class="vx-header-anchor" href="#ubuntu" vx-data-anchor-icon="¶"></a></h3>
+<div class="code-toolbar"><pre class="language-shell line-numbers"><code class="source-line language-shell" data-source-line="6"><span class="token function">apt</span> <span class="token function">install</span> docker.io docker-buildx
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+<h3 id="archlinux" class="source-line" data-source-line="10">ArchLinux<a class="vx-header-anchor" href="#archlinux" vx-data-anchor-icon="¶"></a></h3>
+<div class="code-toolbar"><pre class="language-shell line-numbers"><code class="source-line language-shell" data-source-line="12">pacman -S docker docker-buildx
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+<h2 id="建立-docker-image" class="source-line" data-source-line="16">建立 docker image<a class="vx-header-anchor" href="#建立-docker-image" vx-data-anchor-icon="¶"></a></h2>
+<h3 id="ubuntu-20.04" class="source-line" data-source-line="18">Ubuntu 20.04<a class="vx-header-anchor" href="#ubuntu-20.04" vx-data-anchor-icon="¶"></a></h3>
+<p class="source-line" data-source-line="20">Dockerfile.ubuntu20.04</p>
+<div class="code-toolbar"><pre class="language-shell line-numbers"><code class="source-line language-shell" data-source-line="22">$ docker build --no-cache -t petalinux.build:20.04 -f Dockerfile.ubuntu20.04 <span class="token builtin class-name">.</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+<p class="source-line" data-source-line="26">檢視 docker image 建立結果</p>
+<div class="code-toolbar"><pre class="language-shell line-numbers"><code class="source-line language-shell" data-source-line="28">$ docker images
+REPOSITORY        TAG       IMAGE ID       CREATED          SIZE
+petalinux.build   <span class="token number">20.04</span>     0ff139a32236   <span class="token number">24</span> seconds ago   <span class="token number">1</span>.05GB
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></div>
+<h3 id="ubuntu-18.04" class="source-line" data-source-line="34">Ubuntu 18.04<a class="vx-header-anchor" href="#ubuntu-18.04" vx-data-anchor-icon="¶"></a></h3>
+<p class="source-line" data-source-line="36">Dockerfile.ubuntu18.04</p>
+<div class="code-toolbar"><pre class="language-shell line-numbers"><code class="source-line language-shell" data-source-line="38">$ docker build --no-cache -t petalinux.build:18.04 -f Dockerfile.ubuntu18.04 <span class="token builtin class-name">.</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+<p class="source-line" data-source-line="42">檢視 docker image 建立結果</p>
+<div class="code-toolbar"><pre class="language-shell line-numbers"><code class="source-line language-shell" data-source-line="44">$ docker images                                                     
+REPOSITORY        TAG       IMAGE ID       CREATED          SIZE
+petalinux.build   <span class="token number">18.04</span>     c0fec72ff948   <span class="token number">10</span> seconds ago   854MB
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></div>
+<h2 id="建立及啓動-docker-container" class="source-line" data-source-line="50">建立及啓動 docker container<a class="vx-header-anchor" href="#建立及啓動-docker-container" vx-data-anchor-icon="¶"></a></h2>
+<h3 id="建立和檢視-docker-container" class="source-line" data-source-line="52">建立和檢視 docker container<a class="vx-header-anchor" href="#建立和檢視-docker-container" vx-data-anchor-icon="¶"></a></h3>
+<div class="code-toolbar"><pre class="language-shell line-numbers"><code class="source-line language-shell" data-source-line="54">docker create -it <span class="token operator">&lt;</span>image<span class="token operator">&gt;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+<blockquote>
+<p class="source-line" data-source-line="58">option -it 要指定，才能正確進入 container</p>
+<div class="code-toolbar"><pre class="language-txt line-numbers"><code class="source-line language-txt" data-source-line="60">-i, --interactive                      Keep STDIN open even if not attached
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+<div class="code-toolbar"><pre class="language-txt line-numbers"><code class="source-line language-txt" data-source-line="63">-t, --tty                              Allocate a pseudo-TTY
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+</blockquote>
+<p class="source-line" data-source-line="67">檢視 docker image 建立結果</p>
+<div class="code-toolbar"><pre class="language-shell line-numbers"><code class="source-line language-shell" data-source-line="69">docker <span class="token function">ps</span> -a
+docker container <span class="token function">ls</span> -a
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div>
+<p class="source-line" data-source-line="74">例如建立一個依附於 image <code>0ff139a32236</code> 的 container</p>
+<div class="code-toolbar"><pre class="language-shell line-numbers"><code class="source-line language-shell" data-source-line="76">$ docker create 0ff139a32236
+3b36f11cd26e6b38d7585ab12db0aa119eca25117bb0b1a39fefba8ddefaa624
+$ docker <span class="token function">ps</span> -a
+CONTAINER ID   IMAGE          COMMAND       CREATED          STATUS                      PORTS     NAMES
+3b36f11cd26e   0ff139a32236   <span class="token string">"/bin/bash"</span>   <span class="token number">30</span> seconds ago   Created                               inspiring_dijkstra
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<h3 id="啓動-container" class="source-line" data-source-line="84">啓動 container<a class="vx-header-anchor" href="#啓動-container" vx-data-anchor-icon="¶"></a></h3>
+<div class="code-toolbar"><pre class="language-shell line-numbers"><code class="source-line language-shell" data-source-line="86">docker container start <span class="token operator">&lt;</span>container_id<span class="token operator">&gt;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+<p class="source-line" data-source-line="90">例如啓動 container <code>3b36f11cd26e</code></p>
+<div class="code-toolbar"><pre class="language-shell line-numbers"><code class="source-line language-shell" data-source-line="92">$ docker container start 3b36f11cd26e
+3b36f11cd26e
+$ docker <span class="token function">ps</span> -a
+CONTAINER ID   IMAGE          COMMAND       CREATED          STATUS                      PORTS     NAMES
+3b36f11cd26e   0ff139a32236   <span class="token string">"/bin/bash"</span>   <span class="token number">9</span> minutes ago    Exited <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token number">8</span> seconds ago              inspiring_dijkstra
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<h3 id="進入-container" class="source-line" data-source-line="100">進入 container<a class="vx-header-anchor" href="#進入-container" vx-data-anchor-icon="¶"></a></h3>
+<div class="code-toolbar"><pre class="language-shell line-numbers"><code class="source-line language-shell" data-source-line="102">docker container attach <span class="token operator">&lt;</span>container_id<span class="token operator">&gt;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+<p class="source-line" data-source-line="106">例如進入 container <code>3b36f11cd26e</code></p>
+<div class="code-toolbar"><pre class="language-shell line-numbers"><code class="source-line language-shell" data-source-line="108">$ docker attach 3b36f11cd26e
+petalinux@3b36f11cd26e:~$ 
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div>
+<h2 id="安裝-petalinux-2022.1" class="source-line" data-source-line="113">安裝 PetaLinux 2022.1<a class="vx-header-anchor" href="#安裝-petalinux-2022.1" vx-data-anchor-icon="¶"></a></h2>
+<p class="source-line" data-source-line="115">完整安裝步驟請見 PetaLinux Tools Documentation: Reference Guide (UG1144) 的 <a href="https://docs.amd.com/r/2022.1-English/ug1144-petalinux-tools-reference-guide/Installation-Steps">Installation Steps</a></p>
+<h3 id="下載-petalinux-2022.1-installer" class="source-line" data-source-line="117">下載 PetaLinux 2022.1 installer<a class="vx-header-anchor" href="#下載-petalinux-2022.1-installer" vx-data-anchor-icon="¶"></a></h3>
+<p class="source-line" data-source-line="119">進入 <a href="https://www.xilinx.com/member/forms/download/xef.html?filename=petalinux-v2022.1-04191534-installer.run">https://www.xilinx.com/member/forms/download/xef.html?filename=petalinux-v2022.1-04191534-installer.run</a> 下載</p>
+<blockquote>
+<p class="source-line" data-source-line="121">須要註冊帳號</p>
+</blockquote>
+<p class="source-line" data-source-line="123">下載後依照 PetaLinux Tools Documentation: Reference Guide (UG1144) 的 <a href="https://docs.amd.com/r/2022.1-English/ug1144-petalinux-tools-reference-guide/Installing-the-PetaLinux-Tool">Installing the PetaLinux Tool</a> 的說明進行安裝</p>
+<p class="source-line" data-source-line="125">在 docker container 中安裝 PetaLinux 可有幾種選擇</p>
+<ul>
+<li class="source-line" data-source-line="127">直接安裝在 docker container 中
+<ul>
+<li class="source-line" data-source-line="128">優點: 簡單</li>
+<li class="source-line" data-source-line="129">缺點:
+<ul>
+<li class="source-line" data-source-line="130">若有超過一個 docker container 會用到 PetaLinux，例如 Ubuntu 20.04 和 18.04，則會有多份 PetaLinux</li>
+<li class="source-line" data-source-line="131">若不小心移除未更新到 image 的 container，則所有 container 中的資料都會消失</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="source-line" data-source-line="132">安裝在 host，再連接進 docker container
+<ul>
+<li class="source-line" data-source-line="133">優點: docker container 可共用 PetaLinux</li>
+<li class="source-line" data-source-line="134">缺點:
+<ul>
+<li class="source-line" data-source-line="135">建立 docker container 時須指定 volume 連接</li>
+<li class="source-line" data-source-line="136">host 及 container 共用 volume 的 user 及 group ID 要相同</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="source-line" data-source-line="138">直接安裝在 docker container 的方式依照 reference guide 的說明安裝即可</p>
+<p class="source-line" data-source-line="140">以下爲安裝 PetaLinux 在 host 的說明</p>
+<ul>
+<li class="source-line" data-source-line="142">PetaLinux 2022.1 installer: <code>petalinux-v2022.1-04191534-installer.run</code></li>
+<li class="source-line" data-source-line="143">共用 volume: <code>/opt</code></li>
+<li class="source-line" data-source-line="144">PetaLinux 安裝目錄: <code>/opt/petalinux/2022.1</code></li>
+</ul>
+<h3 id="create-docker-container" class="source-line" data-source-line="146">Create docker container<a class="vx-header-anchor" href="#create-docker-container" vx-data-anchor-icon="¶"></a></h3>
+<p class="source-line" data-source-line="148">以 host 及 docker container 共用 /opt 目錄爲例</p>
+<p class="source-line" data-source-line="150">image 和 container ID 請以實際的 ID 爲主</p>
+<div class="code-toolbar"><pre class="language-shell line-numbers"><code class="source-line language-shell" data-source-line="152">$ docker create -it --privileged -v /opt:/opt <span class="token operator">&lt;</span>image<span class="token operator">&gt;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+<ul>
+<li class="source-line" data-source-line="156"><code>--privileged</code>: 給 container 更多的權限來讀寫 device 等</li>
+<li class="source-line" data-source-line="157"><code>-v</code>: 就是 <code>--volume</code>，連接 host 及 contaiuner 的 volume
+<ul>
+<li class="source-line" data-source-line="158"><code>-v /opt:/opt</code>: 把 host 的 /opt 目錄連接到 container 的 /opt 目錄</li>
+</ul>
+</li>
+</ul>
+<h3 id="start-and-attach-container" class="source-line" data-source-line="160">Start and attach container<a class="vx-header-anchor" href="#start-and-attach-container" vx-data-anchor-icon="¶"></a></h3>
+<div class="code-toolbar"><pre class="language-shell line-numbers"><code class="source-line language-shell" data-source-line="162">$ docker start <span class="token operator">&lt;</span>container_id<span class="token operator">&gt;</span>
+$ docker attach <span class="token operator">&lt;</span>container_id<span class="token operator">&gt;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div>
+<h3 id="安裝-petaliinux" class="source-line" data-source-line="167">安裝 PetaLiinux<a class="vx-header-anchor" href="#安裝-petaliinux" vx-data-anchor-icon="¶"></a></h3>
+<h4 id="in-host" class="source-line" data-source-line="169">In host<a class="vx-header-anchor" href="#in-host" vx-data-anchor-icon="¶"></a></h4>
+<ul>
+<li class="source-line" data-source-line="171">Create directory /opt/petalinux and change owner<div class="code-toolbar"><pre class="language-shell line-numbers"><code class="source-line language-shell" data-source-line="172"><span class="token function">sudo</span> <span class="token function">mkdir</span> /opt/petalinux
+<span class="token function">sudo</span> <span class="token function">chown</span> <span class="token number">1000</span>:1000 /opt/petalinux
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div>
+</li>
+<li class="source-line" data-source-line="176">把下載的 PetaLinux installer <code>petalinux-v2022.1-04191534-installer.run</code>複製到 <code>/opt/petalinux</code><br>
+必要時要變更 owner</li>
+</ul>
+<h4 id="in-container" class="source-line" data-source-line="179">In container<a class="vx-header-anchor" href="#in-container" vx-data-anchor-icon="¶"></a></h4>
+<ul>
+<li class="source-line" data-source-line="181">執行 <code>/opt/petalinux/petalinux-v2022.1-04191534-installer.run</code> 安裝 PetaLinux 到 <code>/opt/petalinux/2022.1</code><div class="code-toolbar"><pre class="language-shell line-numbers"><code class="source-line language-shell" data-source-line="182">$ /opt/petalinux/petalinux-v2022.1-04191534-installer.run -d /opt/petalinux/2022.1
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+</li>
+</ul>
+<h2 id="build-petalinux-os-image" class="source-line" data-source-line="186">Build PetaLinux OS image<a class="vx-header-anchor" href="#build-petalinux-os-image" vx-data-anchor-icon="¶"></a></h2>
+<p class="source-line" data-source-line="188">建立 PetaLinux project 的詳細步驟請見 PetaLinux Tools Documentation: Reference Guide (UG1144) 的 <a href="https://docs.amd.com/r/2022.1-English/ug1144-petalinux-tools-reference-guide/Creating-a-Project">Creating a Project</a> 的說明</p>
+<ul>
+<li class="source-line" data-source-line="190">
+<p class="source-line" data-source-line="190">進入 container</p>
+</li>
+<li class="source-line" data-source-line="191">
+<p class="source-line" data-source-line="191">建立工作目錄並進入工作目錄</p>
+<ul>
+<li class="source-line" data-source-line="192">例如 /opt/petalinux/project<div class="code-toolbar"><pre class="language-shell line-numbers"><code class="source-line language-shell" data-source-line="193">$ <span class="token function">mkdir</span> -p /opt/petalinux/project
+$ <span class="token builtin class-name">cd</span> /opt/petalinux/project
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div>
+</li>
+</ul>
+</li>
+<li class="source-line" data-source-line="197">
+<p class="source-line" data-source-line="197">進入 PetaLinux environment</p>
+<div class="code-toolbar"><pre class="language-shell line-numbers"><code class="source-line language-shell" data-source-line="198">$ <span class="token builtin class-name">source</span> /opt/petalinux/2022.1/settings.sh
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+</li>
+<li class="source-line" data-source-line="201">
+<p class="source-line" data-source-line="201">建立 ULinkSat SDR 專案</p>
+<ul>
+<li class="source-line" data-source-line="202">
+<p class="source-line" data-source-line="202">從 Google driver 下載 PetaLinux BSP file  <a href="https://drive.google.com/file/d/1G5KvSNHeh9afg2nyq2xjCmeNE-C3sm1R/view?usp=drive_link">ULinkSat-SDR.release.bsp</a></p>
+<div class="code-toolbar"><pre class="language-shell line-numbers"><code class="source-line language-shell" data-source-line="204">$ petalinux-create -t project -s ULinkSat-SDR.release.bsp
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+</li>
+</ul>
+</li>
+<li class="source-line" data-source-line="207">
+<p class="source-line" data-source-line="207">Setup system configuration</p>
+<ul>
+<li class="source-line" data-source-line="208">例如變更 rootfs<br>
+<img src='data:image/png;base64,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' alt="8c359ac0-2a31-452a-8d74-a8caa44cfb78" class="vx-image-view-image"><br>
+<img src='data:image/png;base64,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' alt="0bca2b5d-3665-42e8-8028-b996f5deca45" class="vx-image-view-image"><br>
+<img src='data:image/png;base64,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0DC/5XMyg5wBPApRA65XuG6yaxGADokaAECQqAEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABBluDYCU20jRvDhRA4CUYbBomeOVuYACAASJGgBAkKgBAASJGgBAkKgBAAR5AgVS3n74fHUV/sPH919dXQXgFenVAACCRA041e9/9Zvbf4V5Pr7/qq0H4rH6Lf71szeLP0988+07r2SAhyZqwBluIeD3v/rNDz9+uv1XSBtHXXnpJHncGRSGd0CduVLgQO7VgLiP77+ap4cffvw0/Pb2QyFhzOdZmzJe19sPnxdXfaZvvn23KysMEWFtqXGGKJT85z/9ce+qgRBRA7LGB/txZ8Ytaox/uxYL5vMsLrUYLK5NG5sH+8l1k/H8hWVr5pE2oB+iBgTND/NDZ8btYkrlZY7CPJsx4qq0UXOY/6///vvthyFzHHvhQ9qAHogaEFRzmK8JAfcEhat6NdoO88fGAjkDeuC2UMi6pY3bz+UHT9qUO0WuvVfjljauWrucAZ344uvvPl1dB7I6eQzhBY2P8cMhf3KvxuQDus1TuAm0MM94zmGeSR0Crdy2dsj/18/ejC+g3H6e3/U5uVG08rZQOaM3wydSkz6/fPP9KZXiJKLG8xM1ruJtoQkyxIMSNV6ZCygAQJCoATwSXRrwcEQNACDIw66Q8hz3RgDcSa8GABAkagAAQaIGABAkagAAQaIGABAkagAAQR52fUUXjoAFwKsRNV6R9y0CcBoXUACAIFEDAAgSNQCAIFEDAAgSNQCAIE+gPL+3Hz5vzvPvv//hlLoA8HL0agAAQaIGABAkagAAQaIGABAkagAAQaIGABAkagAAQaIGABAkagAAQaIGABAkagAAQaIGABAkagAAQUZ25X99+eb7q6sAwHPSqwEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABIkaAECQqAEABP1PAAAA//9o3jhqBuRXOgAAAABJRU5ErkJggg==' alt="92369135-aa6c-4ac4-9fa3-368db7ec2e40" class="vx-image-view-image"><br>
+詳細 petalinux-config 操作見 PetaLinux Tools Documentation: Reference Guide (UG1144) 的 <a href="https://docs.amd.com/r/2022.1-English/ug1144-petalinux-tools-reference-guide/Customizing-the-Project">Customizing the Project</a></li>
+</ul>
+  <br>
+<ul>
+<li class="source-line" data-source-line="216">
+<p class="source-line" data-source-line="216">若無需變更，可執行以下指令建立 build directory</p>
+<div class="code-toolbar"><pre class="language-shell line-numbers"><code class="source-line language-shell" data-source-line="218">$ petalinux-config --silent
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+</li>
+</ul>
+</li>
+<li class="source-line" data-source-line="221">
+<p class="source-line" data-source-line="221">調整其他設置</p>
+<ul>
+<li class="source-line" data-source-line="222">
+<p class="source-line" data-source-line="222">例如指定 PetaLinux download cache 來減少 build image 的時間，以下說明用 symbolic link 方式連接 download cache 路徑 <code>/opt/petalinux/cache/2022.1/downloads</code></p>
+<div class="code-toolbar"><pre class="language-shell line-numbers"><code class="source-line language-shell" data-source-line="224">$ <span class="token builtin class-name">cd</span> build
+$ <span class="token function">ln</span> -snf /opt/petalinux/cache/2022.1/downloads <span class="token builtin class-name">.</span>
+$ <span class="token builtin class-name">cd</span> -
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></div>
+</li>
+</ul>
+</li>
+<li class="source-line" data-source-line="229">
+<p class="source-line" data-source-line="229">Build project</p>
+<div class="code-toolbar"><pre class="language-shell line-numbers"><code class="source-line language-shell" data-source-line="230">$ petalinux-build
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+</li>
+<li class="source-line" data-source-line="233">
+<p class="source-line" data-source-line="233">建立 image packages</p>
+<div class="code-toolbar"><pre class="language-shell line-numbers"><code class="source-line language-shell" data-source-line="234">$ petalinux-package --force --prebuilt <span class="token operator">&amp;&amp;</span> petalinux-package --force --boot --fsbl images/linux/zynq_fsbl.elf --fpga images/linux/system_top.bit --u-boot images/linux/u-boot.elf
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+<p class="source-line" data-source-line="238">成功後，image packages 在 <code>images/linux</code> 目錄</p>
+</li>
+</ul>
+<h2 id="燒錄-os-image" class="source-line" data-source-line="240">燒錄 OS image<a class="vx-header-anchor" href="#燒錄-os-image" vx-data-anchor-icon="¶"></a></h2>
+<p class="source-line" data-source-line="242"><a href="https://drive.google.com/file/d/1G5KvSNHeh9afg2nyq2xjCmeNE-C3sm1R/view?usp=drive_link">ULinkSat-SDR.release.bsp</a> 的 rootfs 爲 Ext4，可以需求執行 <code>petalinux-config</code> 調整</p>
+<ul>
+<li class="source-line" data-source-line="244">
+<p class="source-line" data-source-line="244">Ext4</p>
+<ul>
+<li class="source-line" data-source-line="246">
+<p class="source-line" data-source-line="246">利用 tar.gz 包</p>
+<ul>
+<li class="source-line" data-source-line="248">
+<p class="source-line" data-source-line="248">參考 PetaLinux Tools Documentation: Reference Guide (UG1144) 的 <a href="https://docs.amd.com/r/2022.1-English/ug1144-petalinux-tools-reference-guide/Booting-PetaLinux-Image-on-Hardware-with-an-SD-Card">Booting PetaLinux Image on Hardware with an SD Card</a> 說明製作 bootable SD card</p>
+</li>
+<li class="source-line" data-source-line="250">
+<p class="source-line" data-source-line="250">或參考 <a href="https://drive.google.com/file/d/1yWu4EHlhasOl4lUP-ryZS7h1YrAPtkvt/view?usp=drive_link">prog_ext4_sd.sh</a> 進行燒錄</p>
+</li>
+</ul>
+</li>
+<li class="source-line" data-source-line="252">
+<p class="source-line" data-source-line="252">利用 WIC image</p>
+<ul>
+<li class="source-line" data-source-line="254">
+<p class="source-line" data-source-line="254">製作 WIC image 的方式見 PetaLinux Tools Documentation: Reference Guide (UG1144) <a href="https://docs.amd.com/r/2022.1-English/ug1144-petalinux-tools-reference-guide/petalinux-package-wic-Command-Examples">petalinux-package --wic Command Examples</a></p>
+</li>
+<li class="source-line" data-source-line="256">
+<p class="source-line" data-source-line="256"><code>petalinux-package --wic</code> 製作出的 image 有 6GB，要減少燒錄時間可參考 <a href="https://drive.google.com/file/d/1ayfRlSvscsBjNAyenX1XbXIh7-pYShpP/view?usp=drive_link">prog_wic.sh</a> 利用 bmap file 的方式行之</p>
+<blockquote>
+<p class="source-line" data-source-line="258">注意:</p>
+<p class="source-line" data-source-line="260">實作發現用 bmap file 會出現開機失敗情形，對策是重新複製 BOOT.BIN 帶 boot partition 及可，<a href="https://drive.google.com/file/d/1ayfRlSvscsBjNAyenX1XbXIh7-pYShpP/view?usp=drive_link">prog_wic.sh</a> 有進行這個修正</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="source-line" data-source-line="262">
+<p class="source-line" data-source-line="262">JFFS2</p>
+<ul>
+<li class="source-line" data-source-line="264">Setup JFFS2 boot
+<ul>
+<li class="source-line" data-source-line="265">
+<p class="source-line" data-source-line="265">設置 JFFS2 rootfs 的方式可參考 PetaLinux Tools Documentation: Reference Guide (UG1144) <a href="https://docs.amd.com/r/2022.1-English/ug1144-petalinux-tools-reference-guide/Configuring-JFFS2-Boot">Configuring JFFS2 Boot</a>，但要注意坑不少</p>
+</li>
+<li class="source-line" data-source-line="267">
+<p class="source-line" data-source-line="267">若僅切換 ULinkSat SDR 爲 JFFS2 boot，可參考以下 shell script</p>
+<div class="code-toolbar"><pre class="language-shell line-numbers"><code class="source-line language-shell" data-source-line="269"><span class="token shebang important">#!/bin/bash</span>
+
+<span class="token function-name function">msg_info</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token builtin class-name">echo</span> -e <span class="token string">"<span class="token entity" title="\e">\e</span>[0;32m<span class="token variable">${1}</span><span class="token entity" title="\e">\e</span>[0m"</span>
+<span class="token punctuation">}</span>
+
+<span class="token function-name function">msg_error</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token builtin class-name">echo</span> -e <span class="token string">"[ERROR] <span class="token entity" title="\e">\e</span>[0;31m<span class="token variable">${1}</span><span class="token entity" title="\e">\e</span>[0m"</span>
+<span class="token punctuation">}</span>
+
+<span class="token function-name function">error_exit</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    msg_error <span class="token string">"<span class="token variable">${1}</span>"</span>
+    <span class="token boolean">false</span>
+    <span class="token builtin class-name">exit</span> <span class="token number">1</span>
+<span class="token punctuation">}</span>
+
+<span class="token function-name function">disable_all_rootfs</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    msg_info <span class="token string">"----&gt;&gt;&gt; Disable all rootfs types"</span>
+    <span class="token keyword">for</span> <span class="token for-or-select variable">f</span> <span class="token keyword">in</span> <span class="token variable">${FS_LST}</span><span class="token punctuation">;</span> <span class="token keyword">do</span>
+        <span class="token assign-left variable">f</span><span class="token operator">=</span><span class="token string">"CONFIG_SUBSYSTEM_ROOTFS_<span class="token variable">${f}</span>"</span>
+        <span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token variable">${TEST}</span> -eq <span class="token number">0</span> <span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">||</span> <span class="token builtin class-name">echo</span> <span class="token string">"<span class="token variable">${f}</span>"</span>
+        <span class="token function">sed</span> <span class="token variable">${SED_OPTS}</span> <span class="token string">"s/.*<span class="token variable">${f}</span>.*/# <span class="token variable">${f}</span> is not set/g"</span> <span class="token variable">${SYSCONF}</span>
+    <span class="token keyword">done</span>
+<span class="token punctuation">}</span>
+
+<span class="token function-name function">disable_all_jffs2_erase_size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token builtin class-name">local</span> <span class="token assign-left variable">size_lst</span><span class="token operator">=</span><span class="token string">"4 8 16 32 64 128 256 512"</span>
+    msg_info <span class="token string">"----&gt;&gt;&gt; Disable all JFFS2 erase sizes"</span>
+    <span class="token keyword">for</span> <span class="token for-or-select variable">s</span> <span class="token keyword">in</span> <span class="token variable">${size_lst}</span><span class="token punctuation">;</span> <span class="token keyword">do</span>
+        <span class="token assign-left variable">s</span><span class="token operator">=</span><span class="token string">"CONFIG_SUBSYSTEM_JFFS2_ERASE_SIZE_<span class="token variable">${s}</span>"</span>
+        <span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token variable">${TEST}</span> -eq <span class="token number">0</span> <span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">||</span> <span class="token builtin class-name">echo</span> <span class="token string">"<span class="token variable">${s}</span>"</span>
+        <span class="token keyword">if</span> <span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token variable"><span class="token variable">$(</span><span class="token function">grep</span> $<span class="token punctuation">{</span>s<span class="token punctuation">}</span> <span class="token operator">&lt;&lt;&lt;</span> $<span class="token punctuation">{</span>SYSCONF<span class="token punctuation">}</span><span class="token variable">)</span></span> <span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+            <span class="token function">sed</span> <span class="token variable">${SED_OPTS}</span> <span class="token string">"s/.*<span class="token variable">${s}</span>.*/# <span class="token variable">${s}</span> is not set/g"</span> <span class="token variable">${SYSCONF}</span>
+        <span class="token keyword">else</span>
+            <span class="token builtin class-name">echo</span> <span class="token string">"# <span class="token variable">${s}</span> is not set"</span> <span class="token operator">&gt;&gt;</span>  <span class="token variable">${SYSCONF}</span>
+        <span class="token keyword">fi</span>
+    <span class="token keyword">done</span>
+      
+    <span class="token builtin class-name">unset</span> size_lst
+<span class="token punctuation">}</span>
+
+<span class="token function-name function">chg_rootfs</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">[</span><span class="token punctuation">[</span> -z <span class="token variable">${FS_TYPE}</span> <span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> error_exit <span class="token string">"Rootfs type not assign."</span>
+
+    <span class="token assign-left variable">FS_TYPE</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token builtin class-name">echo</span> $<span class="token punctuation">{</span>FS_TYPE<span class="token punctuation">}</span> <span class="token operator">|</span> <span class="token function">tr</span> <span class="token string">'[:lower:]'</span> <span class="token string">'[:upper:]'</span><span class="token variable">)</span></span>
+    msg_info <span class="token string">"----&gt;&gt;&gt; Set rootfs to <span class="token variable">${FS_TYPE}</span>"</span>
+
+    <span class="token assign-left variable">FS_LST</span><span class="token operator">=</span><span class="token string">"INITRAMFS INITRD JFFS2 UBIFS EXT4 OTHER"</span>
+    <span class="token assign-left variable">FS_FOUND</span><span class="token operator">=</span><span class="token number">0</span>
+    <span class="token keyword">for</span> <span class="token for-or-select variable">f</span> <span class="token keyword">in</span> <span class="token variable">${FS_LST}</span><span class="token punctuation">;</span> <span class="token keyword">do</span>
+        <span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token variable">${f}</span> <span class="token operator">!=</span> <span class="token variable">${FS_TYPE}</span> <span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> <span class="token builtin class-name">continue</span>
+        <span class="token assign-left variable">FS_FOUND</span><span class="token operator">=</span><span class="token number">1</span>
+        <span class="token builtin class-name">break</span>
+    <span class="token keyword">done</span>
+
+    <span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token variable">${FS_FOUND}</span> -eq <span class="token number">0</span> <span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> error_exit <span class="token string">"Rootfs <span class="token variable">${FS_TYPE}</span> not supported"</span>
+
+    <span class="token comment"># Disable all rootfs types</span>
+    disable_all_rootfs
+
+
+    msg_info <span class="token string">"----&gt;&gt;&gt; Enable rootfs <span class="token variable">${FS_TYPE}</span>"</span>
+    <span class="token assign-left variable">ERASE_SIZE</span><span class="token operator">=</span><span class="token string">"4"</span>
+    <span class="token assign-left variable">f</span><span class="token operator">=</span><span class="token string">"CONFIG_SUBSYSTEM_ROOTFS_<span class="token variable">${FS_TYPE}</span>"</span>
+    <span class="token function">sed</span> <span class="token variable">${SED_OPTS}</span> <span class="token string">"s/.*<span class="token variable">${f}</span>.*/<span class="token variable">${f}</span>=y/g"</span> <span class="token variable">${SYSCONF}</span> <span class="token operator">&amp;&amp;</span> <span class="token function">sync</span> <span class="token operator">||</span> error_exit <span class="token string">"Failed to change rootfs type"</span>
+    <span class="token keyword">case</span> <span class="token variable">${FS_TYPE}</span> <span class="token keyword">in</span>
+        <span class="token string">'JFFS2'</span><span class="token punctuation">)</span>
+            disable_all_jffs2_erase_size
+            msg_info <span class="token string">"----&gt;&gt;&gt; Set JFFS2 erase size to <span class="token variable">${ERASE_SIZE}</span>K"</span>
+            <span class="token function">sed</span> <span class="token variable">${SED_OPTS}</span> <span class="token string">"s/.*CONFIG_SUBSYSTEM_JFFS2_ERASE_SIZE_<span class="token variable">${ERASE_SIZE}</span>.*/CONFIG_SUBSYSTEM_JFFS2_ERASE_SIZE_<span class="token variable">${ERASE_SIZE}</span>=y/g"</span> <span class="token variable">${SYSCONF}</span> <span class="token operator">&amp;&amp;</span> <span class="token function">sync</span> <span class="token operator">||</span> error_exit <span class="token string">"Failed to change JFFS erase size"</span> 
+            <span class="token punctuation">;</span><span class="token punctuation">;</span>
+    <span class="token keyword">esac</span>
+
+    msg_info <span class="token string">"----&gt;&gt;&gt; Update system config"</span>
+    petalinux-config --silent <span class="token operator">||</span> error_exit <span class="token string">"Failed to update system config"</span>
+<span class="token punctuation">}</span>
+
+<span class="token function-name function">print_usage</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">"Usage: <span class="token variable"><span class="token variable">$(</span><span class="token function">basename</span> $0<span class="token variable">)</span></span> [-r &lt;rootfs&gt;] [-t]"</span>
+    <span class="token builtin class-name">exit</span> <span class="token number">0</span>
+<span class="token punctuation">}</span>
+
+<span class="token assign-left variable">cmdpath</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">dirname</span> <span class="token punctuation">$(</span>readlink -f $0<span class="token punctuation">)</span><span class="token variable">)</span></span>
+
+<span class="token keyword">while</span> <span class="token builtin class-name">getopts</span> <span class="token string">"r:m:qth"</span> arg
+<span class="token keyword">do</span>
+    <span class="token keyword">case</span> <span class="token variable">$arg</span> <span class="token keyword">in</span>
+        r<span class="token punctuation">)</span>
+            <span class="token assign-left variable">FS_TYPE</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">tr</span> <span class="token string">'[:upper:]'</span> <span class="token string">'[:lower:]'</span> <span class="token operator">&lt;&lt;&lt;</span> $<span class="token punctuation">{</span>OPTARG<span class="token punctuation">}</span><span class="token variable">)</span></span>
+            <span class="token punctuation">;</span><span class="token punctuation">;</span>
+        t<span class="token punctuation">)</span>
+            <span class="token assign-left variable">TEST</span><span class="token operator">=</span><span class="token number">1</span>
+            <span class="token punctuation">;</span><span class="token punctuation">;</span>
+        ?<span class="token operator">|</span>h<span class="token punctuation">)</span>
+            print_usage
+            <span class="token punctuation">;</span><span class="token punctuation">;</span>
+    <span class="token keyword">esac</span>
+<span class="token keyword">done</span>
+<span class="token builtin class-name">shift</span> <span class="token variable"><span class="token variable">$((</span>OPTIND <span class="token operator">-</span> <span class="token number">1</span><span class="token variable">))</span></span>
+<span class="token assign-left variable">PROJDIR</span><span class="token operator">=</span><span class="token string">"<span class="token variable">$@</span>"</span>
+
+<span class="token punctuation">[</span><span class="token punctuation">[</span> -z <span class="token variable">${PROJDIR}</span> <span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> <span class="token assign-left variable">PROJDIR</span><span class="token operator">=</span><span class="token string">"."</span>
+<span class="token punctuation">[</span><span class="token punctuation">[</span> -d <span class="token variable">${PROJDIR}</span> <span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">||</span> error_exit <span class="token string">"Directory <span class="token variable">${PROJDIR}</span> not found"</span>
+
+<span class="token assign-left variable">TEST</span><span class="token operator">=</span><span class="token number">0</span>
+<span class="token assign-left variable">SED_OPTS</span><span class="token operator">=</span><span class="token string">"-e"</span>
+<span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token variable">${TEST}</span> -eq <span class="token number">0</span> <span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> <span class="token assign-left variable">SED_OPTS</span><span class="token operator">=</span><span class="token string">"-i <span class="token variable">${SED_OPTS}</span>"</span>
+
+<span class="token assign-left variable">SYSCONF</span><span class="token operator">=</span><span class="token string">"<span class="token variable">${PROJDIR}</span>/project-spec/configs/config"</span>
+
+<span class="token punctuation">[</span><span class="token punctuation">[</span> -z <span class="token variable">${FS_TYPE}</span> <span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">||</span> chg_rootfs
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+</li>
+</ul>
+</li>
+<li class="source-line" data-source-line="384">燒錄 JFFS2
+<ul>
+<li class="source-line" data-source-line="385">
+<p class="source-line" data-source-line="385">不建議用 PetaLinux Tools Documentation: Reference Guide (UG1144) 的方式燒錄，用 Vitis 比較穩妥</p>
+</li>
+<li class="source-line" data-source-line="387">
+<p class="source-line" data-source-line="387">Vitis 不用安裝在 docker container，可安裝在其他平臺</p>
+</li>
+<li class="source-line" data-source-line="389">
+<p class="source-line" data-source-line="389">安裝 Vitis</p>
+<ul>
+<li class="source-line" data-source-line="390">
+<p class="source-line" data-source-line="390">燒錄 flash 需要 Xilinx 的 xsct，PetaLinux 沒有，須安裝 Vitis</p>
+</li>
+<li class="source-line" data-source-line="392">
+<p class="source-line" data-source-line="392">從 <a href="https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/vitis.html">https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/vitis.html</a> 下載 Vitis installer</p>
+</li>
+<li class="source-line" data-source-line="393">
+<p class="source-line" data-source-line="393">安裝方式請自行參考 Vitis Release Notes And Installation Guide (UG1742) 的 <a href="https://docs.amd.com/r/en-US/ug1742-vitis-release-notes/Vitis-Software-Platform-Installation">Vitis Software Platform Installation</a></p>
+</li>
+</ul>
+</li>
+<li class="source-line" data-source-line="394">
+<p class="source-line" data-source-line="394">燒錄</p>
+<ul>
+<li class="source-line" data-source-line="395">SDR 切換到 JTAG mode</li>
+<li class="source-line" data-source-line="396">使用 Vitis GUI
+<ul>
+<li class="source-line" data-source-line="397">​    請直接參考 Vitis document</li>
+</ul>
+</li>
+<li class="source-line" data-source-line="398">Vitis CLI program_flash
+<ul>
+<li class="source-line" data-source-line="399">​    參考 <a href="https://drive.google.com/file/d/1FJiqBr8NpmHZrcXhIG4xonrOiiDbeT3E/view?usp=drive_link">prog_jffs2.sh</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+    </div>
+    </div>
+
+    <!-- VX_OUTLINE_BUTTON_START -->
+    <div id="container-floating" style="display:none;" class="d-none d-md-block d-xl-block">
+        <div id="floating-button" onclick="toggleMore()">
+            <p id="floating-more" class="more">&gt;</p>
+        </div>
+    </div>
+    <!-- VX_OUTLINE_BUTTON_END -->
+</body>
+</html>
