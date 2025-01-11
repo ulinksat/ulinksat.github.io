@@ -1,4 +1,6 @@
 name: ULinkSat
 markdown: 
-	input: GFM
+	input: kramdown
 	syntax_highlighter: coderay
+kramdown:
+  math_engine: mathjax
