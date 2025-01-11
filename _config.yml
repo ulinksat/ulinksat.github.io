@@ -1,2 +1,4 @@
 name: ULinkSat
-markdown: kramdown
+markdown: 
+	input: GFM
+	syntax_highlighter: coderay
