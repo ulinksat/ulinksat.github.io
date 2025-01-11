@@ -212,9 +212,12 @@ $ docker attach <container_id>
 - Setup system configuration
   -  例如變更 rootfs
     
-   	 ![8c359ac0-2a31-452a-8d74-a8caa44cfb78](vx_images/91577677038107.png)
-    	![0bca2b5d-3665-42e8-8028-b996f5deca45](vx_images/367347877218515.png)
-   	 ![92369135-aa6c-4ac4-9fa3-368db7ec2e40](vx_images/544126548220077.png)
+     ![8c359ac0-2a31-452a-8d74-a8caa44cfb78](vx_images/91577677038107.png)
+     
+     ![0bca2b5d-3665-42e8-8028-b996f5deca45](vx_images/367347877218515.png)
+     
+     ![92369135-aa6c-4ac4-9fa3-368db7ec2e40](vx_images/544126548220077.png)
+     
     詳細 petalinux-config 操作見 PetaLinux Tools Documentation: Reference Guide (UG1144) 的 [Customizing the Project](https://docs.amd.com/r/2022.1-English/ug1144-petalinux-tools-reference-guide/Customizing-the-Project)
 
 	<br>
