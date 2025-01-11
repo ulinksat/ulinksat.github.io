@@ -189,36 +189,42 @@ $ docker attach <container_id>
 建立 PetaLinux project 的詳細步驟請見 PetaLinux Tools Documentation: Reference Guide (UG1144) 的 [Creating a Project](https://docs.amd.com/r/2022.1-English/ug1144-petalinux-tools-reference-guide/Creating-a-Project) 的說明
 
 - 進入 container
+
 - 建立工作目錄並進入工作目錄
   -  例如 /opt/petalinux/project
      ```Shell
      $ mkdir -p /opt/petalinux/project
      $ cd /opt/petalinux/project
      ```
+  
 - 進入 PetaLinux environment
      ```Shell
      $ source /opt/petalinux/2022.1/settings.sh
      ```
+     
 - 建立 ULinkSat SDR 專案
   -  從 Google driver 下載 PetaLinux BSP file  [ULinkSat-SDR.release.bsp](https://drive.google.com/file/d/1G5KvSNHeh9afg2nyq2xjCmeNE-C3sm1R/view?usp=drive_link)
 
      ```Shell
      $ petalinux-create -t project -s ULinkSat-SDR.release.bsp
      ```
+  
 - Setup system configuration
   -  例如變更 rootfs
-    ![8c359ac0-2a31-452a-8d74-a8caa44cfb78](vx_images/91577677038107.png)
-    ![0bca2b5d-3665-42e8-8028-b996f5deca45](vx_images/367347877218515.png) 
-    ![92369135-aa6c-4ac4-9fa3-368db7ec2e40](vx_images/544126548220077.png)
+    
+   	 ![8c359ac0-2a31-452a-8d74-a8caa44cfb78](vx_images/91577677038107.png)
+    	![0bca2b5d-3665-42e8-8028-b996f5deca45](vx_images/367347877218515.png)
+   	 ![92369135-aa6c-4ac4-9fa3-368db7ec2e40](vx_images/544126548220077.png)
     詳細 petalinux-config 操作見 PetaLinux Tools Documentation: Reference Guide (UG1144) 的 [Customizing the Project](https://docs.amd.com/r/2022.1-English/ug1144-petalinux-tools-reference-guide/Customizing-the-Project)
 
-    <br>
-
+	<br>
+	
   -  若無需變更，可執行以下指令建立 build directory
-
+  
      ```Shell
      $ petalinux-config --silent
      ```
+  
 - 調整其他設置
   -  例如指定 PetaLinux download cache 來減少 build image 的時間，以下說明用 symbolic link 方式連接 download cache 路徑 `/opt/petalinux/cache/2022.1/downloads`
 
@@ -227,10 +233,12 @@ $ docker attach <container_id>
      $ ln -snf /opt/petalinux/cache/2022.1/downloads .
      $ cd -
      ```
+  
 - Build project
      ```Shell
      $ petalinux-build
      ```
+     
 - 建立 image packages
      ```Shell
      $ petalinux-package --force --prebuilt && petalinux-package --force --boot --fsbl images/linux/zynq_fsbl.elf --fpga images/linux/system_top.bit --u-boot images/linux/u-boot.elf
@@ -379,6 +387,7 @@ $ docker attach <container_id>
         SYSCONF="${PROJDIR}/project-spec/configs/config"
           
         [[ -z ${FS_TYPE} ]] || chg_rootfs
+        ```
     
   - 燒錄 JFFS2 
     -   不建議用 PetaLinux Tools Documentation: Reference Guide (UG1144) 的方式燒錄，用 Vitis 比較穩妥
