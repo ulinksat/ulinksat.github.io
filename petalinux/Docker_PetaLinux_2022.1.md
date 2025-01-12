@@ -57,13 +57,8 @@ docker create -it <image>
 ```
 
 > option -it 要指定，才能正確進入 container
->
-> ```
-> -i, --interactive                      Keep STDIN open even if not attached
->```
->```
-> -t, --tty                              Allocate a pseudo-TTY
-> ```
+> `-i, --interactive                      Keep STDIN open even if not attached`
+> `-t, --tty                              Allocate a pseudo-TTY`
 
 檢視 docker image 建立結果
 
@@ -218,7 +213,7 @@ $ docker attach <container_id>
      
      ![92369135-aa6c-4ac4-9fa3-368db7ec2e40](vx_images/544126548220077.png)
      
-    詳細 petalinux-config 操作見 PetaLinux Tools Documentation: Reference Guide (UG1144) 的 [Customizing the Project](https://docs.amd.com/r/2022.1-English/ug1144-petalinux-tools-reference-guide/Customizing-the-Project)
+     詳細 petalinux-config 操作見 PetaLinux Tools Documentation: Reference Guide (UG1144) 的 [Customizing the Project](https://docs.amd.com/r/2022.1-English/ug1144-petalinux-tools-reference-guide/Customizing-the-Project)
 
 	<br>
 	
