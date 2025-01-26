@@ -1,0 +1,9 @@
+baseURL = 'https://hugopage-881916.gitlab.io/'
+
+languageCode = 'en-us'
+title = 'ULinkSat'
+
+theme = 'hugo-theme-relearn'
+
+hasCJKLanguage = true
+relativeURLs = true
