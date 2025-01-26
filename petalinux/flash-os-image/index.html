@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr" itemscope itemtype="http://schema.org/Article" data-r-output-format="html">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=34837&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.139.4">
+    <meta name="generator" content="Relearn 7.3.1">
+    <meta name="description" content="ULinkSat-SDR.release.bsp 的 rootfs 爲 Ext4，請依需求執行 petalinux-config 自行調整 此處僅說明 RootFS 爲 Ext4 及 JFFS2 的燒錄方式，其餘方式請參閱 PetaLinux Tools Documentation: Reference Guide (UG1144) Ext4 利用 tar.gz 包 參考 PetaLinux Tools Documentation: Reference Guide (UG1144) 的 Booting PetaLinux Image on Hardware with an SD Card 說明製作 bootable SD card">
+    <meta name="author" content="">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Flash OS image :: ULinkSat">
+    <meta name="twitter:description" content="ULinkSat-SDR.release.bsp 的 rootfs 爲 Ext4，請依需求執行 petalinux-config 自行調整 此處僅說明 RootFS 爲 Ext4 及 JFFS2 的燒錄方式，其餘方式請參閱 PetaLinux Tools Documentation: Reference Guide (UG1144) Ext4 利用 tar.gz 包 參考 PetaLinux Tools Documentation: Reference Guide (UG1144) 的 Booting PetaLinux Image on Hardware with an SD Card 說明製作 bootable SD card">
+    <meta property="og:url" content="http://localhost:34837/petalinux/flash-os-image/index.html">
+    <meta property="og:site_name" content="ULinkSat">
+    <meta property="og:title" content="Flash OS image :: ULinkSat">
+    <meta property="og:description" content="ULinkSat-SDR.release.bsp 的 rootfs 爲 Ext4，請依需求執行 petalinux-config 自行調整 此處僅說明 RootFS 爲 Ext4 及 JFFS2 的燒錄方式，其餘方式請參閱 PetaLinux Tools Documentation: Reference Guide (UG1144) Ext4 利用 tar.gz 包 參考 PetaLinux Tools Documentation: Reference Guide (UG1144) 的 Booting PetaLinux Image on Hardware with an SD Card 說明製作 bootable SD card">
+    <meta property="og:locale" content="en_us">
+    <meta property="og:type" content="article">
+    <meta property="article:section" content="Petalinux">
+    <meta property="article:published_time" content="2025-01-12T20:47:46+08:00">
+    <meta property="article:modified_time" content="2025-01-12T20:47:46+08:00">
+    <meta itemprop="name" content="Flash OS image :: ULinkSat">
+    <meta itemprop="description" content="ULinkSat-SDR.release.bsp 的 rootfs 爲 Ext4，請依需求執行 petalinux-config 自行調整 此處僅說明 RootFS 爲 Ext4 及 JFFS2 的燒錄方式，其餘方式請參閱 PetaLinux Tools Documentation: Reference Guide (UG1144) Ext4 利用 tar.gz 包 參考 PetaLinux Tools Documentation: Reference Guide (UG1144) 的 Booting PetaLinux Image on Hardware with an SD Card 說明製作 bootable SD card">
+    <meta itemprop="datePublished" content="2025-01-12T20:47:46+08:00">
+    <meta itemprop="dateModified" content="2025-01-12T20:47:46+08:00">
+    <meta itemprop="wordCount" content="579">
+    <title>Flash OS image :: ULinkSat</title>
+    <link href="../../css/fontawesome-all.min.css?1737895960" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/fontawesome-all.min.css?1737895960" rel="stylesheet"></noscript>
+    <link href="../../css/auto-complete.css?1737895960" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/auto-complete.css?1737895960" rel="stylesheet"></noscript>
+    <link href="../../css/perfect-scrollbar.min.css?1737895960" rel="stylesheet">
+    <link href="../../css/theme.css?1737895960" rel="stylesheet">
+    <link href="../../css/format-html.css?1737895960" rel="stylesheet" id="R-format-style">
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.relBasePath='..\/..';
+      window.relearn.relBaseUri='..\/..';
+      window.relearn.absBaseUri='http:\/\/localhost:34837';
+      window.relearn.min = ``;
+      window.relearn.disableAnchorCopy=false;
+      window.relearn.disableAnchorScrolling=false;
+      // variant stuff
+      window.relearn.themevariants = [ 'auto' ];
+      window.relearn.customvariantname = "my-custom-variant";
+      window.relearn.changeVariant = function(variant) {
+        var oldVariant = document.documentElement.dataset.rThemeVariant;
+        window.localStorage.setItem(window.relearn.absBaseUri + "/variant", variant);
+        document.documentElement.dataset.rThemeVariant = variant;
+        if (oldVariant != variant) {
+          document.dispatchEvent( new CustomEvent('themeVariantLoaded', { detail: { variant, oldVariant } }) );
+        }
+      }
+      window.relearn.markVariant = function() {
+        var variant = window.localStorage.getItem(window.relearn.absBaseUri + "/variant");
+        var select = document.querySelector("#R-select-variant");
+        if (select) {
+          select.value = variant;
+        }
+      }
+      window.relearn.initVariant = function() {
+        var variant = window.localStorage.getItem(window.relearn.absBaseUri + "/variant") ?? "";
+        if( variant == window.relearn.customvariantname ){
+        }else if( !variant || !window.relearn.themevariants.includes(variant) ){
+          variant = window.relearn.themevariants[0];
+          window.localStorage.setItem(window.relearn.absBaseUri + "/variant", variant);
+        }
+        document.documentElement.dataset.rThemeVariant = variant;
+      }
+      window.relearn.initVariant();
+      window.relearn.markVariant();
+      // translations
+      window.T_Copy_to_clipboard = `Copy to clipboard`;
+      window.T_Copied_to_clipboard = `Copied to clipboard!`;
+      window.T_Copy_link_to_clipboard = `Copy link to clipboard`;
+      window.T_Link_copied_to_clipboard = `Copied link to clipboard!`;
+      window.T_Reset_view = `Reset view`;
+      window.T_View_reset = `View reset!`;
+      window.T_No_results_found = `No results found for "{0}"`;
+      window.T_N_results_found = `{1} results found for "{0}"`;
+    </script>
+  </head>
+  <body class="mobile-support html" data-url="../../petalinux/flash-os-image/index.html">
+    <div id="R-body" class="default-animation">
+      <div id="R-body-overlay"></div>
+      <nav id="R-topbar">
+        <div class="topbar-wrapper">
+          <div class="topbar-sidebar-divider"></div>
+          <div class="topbar-area topbar-area-start" data-area="start">
+            <div class="topbar-button topbar-button-sidebar" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide"><button class="topbar-control" onclick="toggleNav()" type="button" title="Menu (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button>
+            </div>
+            <div class="topbar-button topbar-button-toc" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="Table of Contents (CTRL&#43;ALT&#43;t)"><i class="fa-fw fas fa-list-alt"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper">
+<nav class="TableOfContents">
+  <ul>
+    <li><a href="#ext4">Ext4</a>
+      <ul>
+        <li><a href="#利用-targz-包">利用 tar.gz 包</a></li>
+        <li><a href="#利用-wic-image">利用 WIC image</a></li>
+      </ul>
+    </li>
+    <li><a href="#jffs2">JFFS2</a>
+      <ul>
+        <li><a href="#安裝-vitis">安裝 Vitis</a></li>
+        <li><a href="#ulinksat-從-vitis-抽離的-program_flash">ULinkSat 從 Vitis 抽離的 program_flash</a></li>
+        <li><a href="#燒錄">燒錄</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../petalinux/index.html"><span itemprop="name">Petalinux</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Flash OS image</span><meta itemprop="position" content="2"></li>
+          </ol>
+          <div class="topbar-area topbar-area-end" data-area="end">
+            <div class="topbar-button topbar-button-prev" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="../../petalinux/change-rootfs-jffs2/index.html" title="Change RootFS to JFFS2 (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-next" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><span class="topbar-control"><i class="fa-fw fas fa-chevron-right"></i></span>
+            </div>
+            <div class="topbar-button topbar-button-more" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="More"><i class="fa-fw fas fa-ellipsis-v"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper">
+                  <div class="topbar-area topbar-area-more" data-area="more">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div id="R-main-overlay"></div>
+      <main id="R-body-inner" class="highlightable petalinux" tabindex="-1">
+        <div class="flex-block-wrapper">
+<article class="default">
+  <header class="headline">
+  </header>
+
+<h1 id="flash-os-image">Flash OS image</h1>
+
+<blockquote>
+<ul>
+<li><a href="https://drive.google.com/file/d/1G5KvSNHeh9afg2nyq2xjCmeNE-C3sm1R/view?usp=drive_link" rel="external" target="_blank">ULinkSat-SDR.release.bsp</a> 的 rootfs 爲 Ext4，請依需求執行 <code>petalinux-config</code> 自行調整</li>
+<li>此處僅說明 RootFS 爲 Ext4 及 JFFS2 的燒錄方式，其餘方式請參閱 <a href="https://docs.amd.com/r/2022.1-English/ug1144-petalinux-tools-reference-guide" rel="external" target="_blank">PetaLinux Tools Documentation: Reference Guide (UG1144)</a></li>
+</ul>
+</blockquote>
+<h2 id="ext4">Ext4</h2>
+<h3 id="利用-targz-包">利用 tar.gz 包</h3>
+<p>參考 PetaLinux Tools Documentation: Reference Guide (UG1144) 的 <a href="https://docs.amd.com/r/2022.1-English/ug1144-petalinux-tools-reference-guide/Booting-PetaLinux-Image-on-Hardware-with-an-SD-Card" rel="external" target="_blank">Booting PetaLinux Image on Hardware with an SD Card</a> 說明製作 bootable SD card</p>
+<p>ULinkSat 提供 Linux shell script <a href="https://drive.google.com/file/d/1yWu4EHlhasOl4lUP-ryZS7h1YrAPtkvt/view?usp=drive_link" rel="external" target="_blank">prog_ext4_sd.sh</a> 簡化燒錄工作</p>
+<h3 id="利用-wic-image">利用 WIC image</h3>
+<p>製作 WIC image 的方式見 PetaLinux Tools Documentation: Reference Guide (UG1144) <a href="https://docs.amd.com/r/2022.1-English/ug1144-petalinux-tools-reference-guide/petalinux-package-wic-Command-Examples" rel="external" target="_blank">petalinux-package &ndash;wic Command Examples</a></p>
+<p>利用 WIC image 燒錄要注意</p>
+<ul>
+<li>
+<p><code>petalinux-package --wic</code> 製作出的 image 固定爲 6GB，且燒錄時間較長</p>
+</li>
+<li>
+<p>要減少燒錄時間可參考 <code>bitmaptool copy --bmap</code> 的方式進行燒錄
+例如燒錄 <code>petalinux-sdimage.wic.xz</code> 到 <code>/dev/sdc</code> 的 commane</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>bitmaptool copy --bmap petalinux-sdimage.wic.bmap petalinux-sdimage.wic.xz /dev/sdc</span></span></code></pre></div>
+<blockquote>
+<p><strong>注意</strong><br>
+實作發現用 <code>bitmaptool copy --bmap</code> 會出現開機失敗情形，對策是重新複製 BOOT.BIN 帶 boot partition</p>
+<p>ULinkSat 提供的 Linux shell script <a href="https://drive.google.com/file/d/1ayfRlSvscsBjNAyenX1XbXIh7-pYShpP/view?usp=drive_link" rel="external" target="_blank">prog_wic.sh</a> 有進行這個修正</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h2 id="jffs2">JFFS2</h2>
+<blockquote>
+<p>不建議用 PetaLinux Tools Documentation: Reference Guide (UG1144) 的方式燒錄，用 Vitis 比較穩妥</p>
+</blockquote>
+<p>燒錄 JFFS2 可利用 Vitis 的 GUI 或 CLI command program_flash 行之</p>
+<ul>
+<li>
+<p>使用 GUI 一定要安裝 Vitis，Vitis 版本不必和 PetaLinux 一樣</p>
+</li>
+<li>
+<p>使用 CLI command program_flash 可安裝 Vitis，或使用 ULinkSat 從 Vitis 抽離的 program_flash
+目前只支援 Linux 和 Zynq 系列</p>
+</li>
+</ul>
+<h3 id="安裝-vitis">安裝 Vitis</h3>
+<p>若使用 Docker container，Vitis 可不用安裝在 Docker container 內，可安裝在 host，在用 &ndash;volumn 選項連結</p>
+<ul>
+<li>
+<p>從 <a href="https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/vitis.html" rel="external" target="_blank">https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/vitis.html</a> 下載 Vitis installer</p>
+</li>
+<li>
+<p>安裝方式請自行參考 Vitis Release Notes And Installation Guide (UG1742) 的 <a href="https://docs.amd.com/r/en-US/ug1742-vitis-release-notes/Vitis-Software-Platform-Installation" rel="external" target="_blank">Vitis Software Platform Installation</a></p>
+</li>
+</ul>
+<h3 id="ulinksat-從-vitis-抽離的-program_flash">ULinkSat 從 Vitis 抽離的 program_flash</h3>
+<p>從 Google Drive 下載 <a href="https://drive.google.com/file/d/1BTIJtjsYNHq3YznLHcatpLUHhZRQMv7a/view?usp=drive_link" rel="external" target="_blank">vitis_progflash_zynq.7z</a> 並解壓到你指定的路徑</p>
+<h3 id="燒錄">燒錄</h3>
+<h4 id="sdr-切換到-jtag-mode">SDR 切換到 JTAG mode</h4>
+<h4 id="使用-vitis-gui-進行燒錄">使用 Vitis GUI 進行燒錄</h4>
+<p>請參考 Vitis document 操作</p>
+<h4 id="使用-vitis-cli-command-program_flash">使用 Vitis CLI command <code>program_flash</code></h4>
+<p>以下 program_flash command 會清除 partition 空間</p>
+<ul>
+<li>
+<p>u-boot</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>program_flash -fsbl ./zynq_fsbl.elf -multi_image -f BOOT.BIN -offsets <span style="color:#ae81ff">0</span> -erase_offsets <span style="color:#ae81ff">0</span> -erase_sizes 0x600000 -erase_sector <span style="color:#ae81ff">65536</span> -flash_type qspi-x4-single</span></span></code></pre></div>
+</li>
+<li>
+<p>boot.scr</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>program_flash -fsbl ./zynq_fsbl.elf -multi_image -f boot.scr -offsets 0x620000 -erase_offsets 0x620000 -erase_sizes 0x20000 -erase_sector <span style="color:#ae81ff">65536</span> -flash_type qspi-x4-single</span></span></code></pre></div>
+</li>
+<li>
+<p>Linux kernel &amp; device tree</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>program_flash -fsbl ./zynq_fsbl.elf -multi_image -f image.ub -offsets 0x640000 -erase_offsets 0x640000 -erase_sizes 0x600000 -erase_sector <span style="color:#ae81ff">65536</span> -flash_type qspi-x4-single</span></span></code></pre></div>
+</li>
+<li>
+<p>Root file system</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>program_flash -fsbl ./zynq_fsbl.elf -multi_image -f rootfs.jffs2 -offsets 0xc40000 -erase_offsets 0xc40000 -erase_sizes 0xc800000 -erase_sector <span style="color:#ae81ff">65536</span> -flash_type qspi-x4-single</span></span></code></pre></div>
+</li>
+</ul>
+<p>​	ULinkSat 提供 Linux shell script <a href="https://drive.google.com/file/d/17U88UA1o0uQyi_7aI-RiirSe-NothWNJ/view?usp=drive_link" rel="external" target="_blank">prog_jffs2.sh</a> 來簡化燒錄工作，此 script 會</p>
+<ul>
+<li>從 PetaLinux 的 system config 中取得 erase size</li>
+<li>從 PetaLinux 的 system config 中取得各 partition size 並計算 offset</li>
+</ul>
+
+  <footer class="footline">
+  </footer>
+</article>
+        </div>
+      </main>
+    </div>
+    <aside id="R-sidebar" class="default-animation">
+      <div id="R-header-topbar" class="default-animation"></div>
+      <div id="R-header-wrapper" class="default-animation">
+        <div id="R-header" class="default-animation">
+          <a id="R-logo" class="R-default" href="../../index.html">
+            ULinkSat
+          </a>
+        </div>
+        <script>
+          window.index_js_url="../../searchindex.en.js?1737895960";
+        </script>
+        <search><form action="../../search/index.html" method="get">
+          <div class="searchbox default-animation">
+            <button class="search-detail" type="submit" title="Search (CTRL+ALT+f)"><i class="fas fa-search"></i></button>
+            <label class="a11y-only" for="R-search-by">Search</label>
+            <input data-search-input id="R-search-by" name="search-by" class="search-by" type="search" placeholder="Search...">
+            <button class="search-clear" type="button" data-search-clear="" title="Clear search"><i class="fas fa-times" title="Clear search"></i></button>
+          </div>
+        </form></search>
+        <script>
+          var contentLangs=['en'];
+        </script>
+        <script src="../../js/auto-complete.js?1737895960" defer></script>
+        <script src="../../js/lunr/lunr.min.js?1737895960" defer></script>
+        <script src="../../js/lunr/lunr.stemmer.support.min.js?1737895960" defer></script>
+        <script src="../../js/lunr/lunr.multi.min.js?1737895960" defer></script>
+        <script src="../../js/lunr/lunr.en.min.js?1737895960" defer></script>
+        <script src="../../js/search.js?1737895960" defer></script>
+      </div>
+      <div id="R-homelinks" class="default-animation homelinks">
+        <ul>
+          <li><a class="padding" href="../../index.html"><i class="fa-fw fas fa-home"></i> Home</a></li>
+        </ul>
+        <hr class="padding">
+      </div>
+      <div id="R-content-wrapper" class="highlightable">
+        <div id="R-shortcutmenu-home" class="R-sidebarmenu">
+          <ul class="enlarge morespace collapsible-menu">
+            <li class="parent " data-nav-id="/petalinux/index.html"><a class="padding" href="../../petalinux/index.html">Petalinux</a><ul id="R-subsections-2781be08bbf107164e99b4791835c73d" class="collapsible-menu">
+            <li class="" data-nav-id="/petalinux/petalinux-in-docker/index.html"><a class="padding" href="../../petalinux/petalinux-in-docker/index.html">Install PetaLinux 2022.1 in Docker</a></li>
+            <li class="" data-nav-id="/petalinux/create-sdr-project/index.html"><a class="padding" href="../../petalinux/create-sdr-project/index.html">Create SDR Project</a></li>
+            <li class="" data-nav-id="/petalinux/build-petalinux-os-image/index.html"><a class="padding" href="../../petalinux/build-petalinux-os-image/index.html">Build PetaLinux OS Image</a></li>
+            <li class="" data-nav-id="/petalinux/change-rootfs-jffs2/index.html"><a class="padding" href="../../petalinux/change-rootfs-jffs2/index.html">Change RootFS to JFFS2</a></li>
+            <li class="active " data-nav-id="/petalinux/flash-os-image/index.html"><a class="padding" href="../../petalinux/flash-os-image/index.html">Flash OS image</a></li></ul></li>
+          </ul>
+        </div>
+    
+        <div class="padding footermargin footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showFooter"></div>
+        <div id="R-menu-footer">
+          <hr class="padding default-animation footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showFooter">
+          <div id="R-prefooter" class="footerLangSwitch footerVariantSwitch footerVisitedLinks">
+            <ul>
+              <li id="R-select-language-container" class="footerLangSwitch">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-language"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <label class="a11y-only" for="R-select-language">Language</label>
+                    <select id="R-select-language" onchange="location = this.querySelector( this.value ).dataset.url;">
+                      <option id="R-select-language-en" value="#R-select-language-en" data-url="../../petalinux/flash-os-image/index.html" lang="en-us" selected></option>
+                    </select>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+              </li>
+              <li id="R-select-variant-container" class="footerVariantSwitch">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-paint-brush"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <label class="a11y-only" for="R-select-variant">Theme</label>
+                    <select id="R-select-variant" onchange="window.relearn.changeVariant( this.value );">
+                      <option id="R-select-variant-auto" value="auto" selected>Auto</option>
+                    </select>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+                <script>window.relearn.markVariant();</script>
+              </li>
+              <li class="footerVisitedLinks">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-history"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <button onclick="clearHistory();">Clear History</button>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div id="R-footer" class="footerFooter showFooter">
+        <p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn" title="love"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p>
+          </div>
+        </div>
+      </div>
+    </aside>
+    <script src="../../js/clipboard.min.js?1737895960" defer></script>
+    <script src="../../js/perfect-scrollbar.min.js?1737895960" defer></script>
+    <script src="../../js/theme.js?1737895960" defer></script>
+  </body>
+</html>

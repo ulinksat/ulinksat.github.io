@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr" itemscope itemtype="http://schema.org/Article" data-r-output-format="html">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=34837&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.139.4">
+    <meta name="generator" content="Relearn 7.3.1">
+    <meta name="description" content="安裝 Docker Ubuntu apt install docker.io docker-buildx ArchLinux pacman -S docker docker-buildx 建立 Docker image Ubuntu 20.04 Dockerfile.ubuntu20.04
+$ docker build --no-cache -t petalinux.build:20.04 -f Dockerfile.ubuntu20.04 . 檢視 docker image 建立結果
+$ docker images REPOSITORY TAG IMAGE ID CREATED SIZE petalinux.build 20.04 0ff139a32236 24 seconds ago 1.05GB Ubuntu 18.04 Dockerfile.ubuntu18.04
+$ docker build --no-cache -t petalinux.build:18.04 -f Dockerfile.ubuntu18.04 . 檢視 docker image 建立結果">
+    <meta name="author" content="">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Install PetaLinux 2022.1 in Docker :: ULinkSat">
+    <meta name="twitter:description" content="安裝 Docker Ubuntu apt install docker.io docker-buildx ArchLinux pacman -S docker docker-buildx 建立 Docker image Ubuntu 20.04 Dockerfile.ubuntu20.04
+$ docker build --no-cache -t petalinux.build:20.04 -f Dockerfile.ubuntu20.04 . 檢視 docker image 建立結果
+$ docker images REPOSITORY TAG IMAGE ID CREATED SIZE petalinux.build 20.04 0ff139a32236 24 seconds ago 1.05GB Ubuntu 18.04 Dockerfile.ubuntu18.04
+$ docker build --no-cache -t petalinux.build:18.04 -f Dockerfile.ubuntu18.04 . 檢視 docker image 建立結果">
+    <meta property="og:url" content="http://localhost:34837/petalinux/petalinux-in-docker/index.html">
+    <meta property="og:site_name" content="ULinkSat">
+    <meta property="og:title" content="Install PetaLinux 2022.1 in Docker :: ULinkSat">
+    <meta property="og:description" content="安裝 Docker Ubuntu apt install docker.io docker-buildx ArchLinux pacman -S docker docker-buildx 建立 Docker image Ubuntu 20.04 Dockerfile.ubuntu20.04
+$ docker build --no-cache -t petalinux.build:20.04 -f Dockerfile.ubuntu20.04 . 檢視 docker image 建立結果
+$ docker images REPOSITORY TAG IMAGE ID CREATED SIZE petalinux.build 20.04 0ff139a32236 24 seconds ago 1.05GB Ubuntu 18.04 Dockerfile.ubuntu18.04
+$ docker build --no-cache -t petalinux.build:18.04 -f Dockerfile.ubuntu18.04 . 檢視 docker image 建立結果">
+    <meta property="og:locale" content="en_us">
+    <meta property="og:type" content="article">
+    <meta property="article:section" content="Petalinux">
+    <meta property="article:published_time" content="2025-01-12T20:47:33+08:00">
+    <meta property="article:modified_time" content="2025-01-12T20:47:33+08:00">
+    <meta itemprop="name" content="Install PetaLinux 2022.1 in Docker :: ULinkSat">
+    <meta itemprop="description" content="安裝 Docker Ubuntu apt install docker.io docker-buildx ArchLinux pacman -S docker docker-buildx 建立 Docker image Ubuntu 20.04 Dockerfile.ubuntu20.04
+$ docker build --no-cache -t petalinux.build:20.04 -f Dockerfile.ubuntu20.04 . 檢視 docker image 建立結果
+$ docker images REPOSITORY TAG IMAGE ID CREATED SIZE petalinux.build 20.04 0ff139a32236 24 seconds ago 1.05GB Ubuntu 18.04 Dockerfile.ubuntu18.04
+$ docker build --no-cache -t petalinux.build:18.04 -f Dockerfile.ubuntu18.04 . 檢視 docker image 建立結果">
+    <meta itemprop="datePublished" content="2025-01-12T20:47:33+08:00">
+    <meta itemprop="dateModified" content="2025-01-12T20:47:33+08:00">
+    <meta itemprop="wordCount" content="746">
+    <title>Install PetaLinux 2022.1 in Docker :: ULinkSat</title>
+    <link href="../../css/fontawesome-all.min.css?1737895960" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/fontawesome-all.min.css?1737895960" rel="stylesheet"></noscript>
+    <link href="../../css/auto-complete.css?1737895960" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/auto-complete.css?1737895960" rel="stylesheet"></noscript>
+    <link href="../../css/perfect-scrollbar.min.css?1737895960" rel="stylesheet">
+    <link href="../../css/theme.css?1737895960" rel="stylesheet">
+    <link href="../../css/format-html.css?1737895960" rel="stylesheet" id="R-format-style">
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.relBasePath='..\/..';
+      window.relearn.relBaseUri='..\/..';
+      window.relearn.absBaseUri='http:\/\/localhost:34837';
+      window.relearn.min = ``;
+      window.relearn.disableAnchorCopy=false;
+      window.relearn.disableAnchorScrolling=false;
+      // variant stuff
+      window.relearn.themevariants = [ 'auto' ];
+      window.relearn.customvariantname = "my-custom-variant";
+      window.relearn.changeVariant = function(variant) {
+        var oldVariant = document.documentElement.dataset.rThemeVariant;
+        window.localStorage.setItem(window.relearn.absBaseUri + "/variant", variant);
+        document.documentElement.dataset.rThemeVariant = variant;
+        if (oldVariant != variant) {
+          document.dispatchEvent( new CustomEvent('themeVariantLoaded', { detail: { variant, oldVariant } }) );
+        }
+      }
+      window.relearn.markVariant = function() {
+        var variant = window.localStorage.getItem(window.relearn.absBaseUri + "/variant");
+        var select = document.querySelector("#R-select-variant");
+        if (select) {
+          select.value = variant;
+        }
+      }
+      window.relearn.initVariant = function() {
+        var variant = window.localStorage.getItem(window.relearn.absBaseUri + "/variant") ?? "";
+        if( variant == window.relearn.customvariantname ){
+        }else if( !variant || !window.relearn.themevariants.includes(variant) ){
+          variant = window.relearn.themevariants[0];
+          window.localStorage.setItem(window.relearn.absBaseUri + "/variant", variant);
+        }
+        document.documentElement.dataset.rThemeVariant = variant;
+      }
+      window.relearn.initVariant();
+      window.relearn.markVariant();
+      // translations
+      window.T_Copy_to_clipboard = `Copy to clipboard`;
+      window.T_Copied_to_clipboard = `Copied to clipboard!`;
+      window.T_Copy_link_to_clipboard = `Copy link to clipboard`;
+      window.T_Link_copied_to_clipboard = `Copied link to clipboard!`;
+      window.T_Reset_view = `Reset view`;
+      window.T_View_reset = `View reset!`;
+      window.T_No_results_found = `No results found for "{0}"`;
+      window.T_N_results_found = `{1} results found for "{0}"`;
+    </script>
+  </head>
+  <body class="mobile-support html" data-url="../../petalinux/petalinux-in-docker/index.html">
+    <div id="R-body" class="default-animation">
+      <div id="R-body-overlay"></div>
+      <nav id="R-topbar">
+        <div class="topbar-wrapper">
+          <div class="topbar-sidebar-divider"></div>
+          <div class="topbar-area topbar-area-start" data-area="start">
+            <div class="topbar-button topbar-button-sidebar" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide"><button class="topbar-control" onclick="toggleNav()" type="button" title="Menu (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button>
+            </div>
+            <div class="topbar-button topbar-button-toc" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="Table of Contents (CTRL&#43;ALT&#43;t)"><i class="fa-fw fas fa-list-alt"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper">
+<nav class="TableOfContents">
+  <ul>
+    <li><a href="#安裝-docker">安裝 Docker</a>
+      <ul>
+        <li><a href="#ubuntu">Ubuntu</a></li>
+        <li><a href="#archlinux">ArchLinux</a></li>
+      </ul>
+    </li>
+    <li><a href="#建立-docker-image">建立 Docker image</a>
+      <ul>
+        <li><a href="#ubuntu-2004">Ubuntu 20.04</a></li>
+        <li><a href="#ubuntu-1804">Ubuntu 18.04</a></li>
+      </ul>
+    </li>
+    <li><a href="#建立及啓動-docker-container">建立及啓動 Docker container</a>
+      <ul>
+        <li><a href="#建立和檢視-docker-container">建立和檢視 Docker container</a></li>
+        <li><a href="#啓動-container">啓動 container</a></li>
+        <li><a href="#進入-container">進入 container</a></li>
+      </ul>
+    </li>
+    <li><a href="#安裝-petalinux-20221">安裝 PetaLinux 2022.1</a>
+      <ul>
+        <li><a href="#下載-petalinux-20221-installer">下載 PetaLinux 2022.1 installer</a></li>
+        <li><a href="#create-docker-container">Create docker container</a></li>
+        <li><a href="#進入-container-1">進入 container</a></li>
+        <li><a href="#安裝-petaliinux">安裝 PetaLiinux</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../petalinux/index.html"><span itemprop="name">Petalinux</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Install PetaLinux 2022.1 in Docker</span><meta itemprop="position" content="2"></li>
+          </ol>
+          <div class="topbar-area topbar-area-end" data-area="end">
+            <div class="topbar-button topbar-button-prev" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="../../petalinux/index.html" title="Petalinux (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-next" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="../../petalinux/create-sdr-project/index.html" title="Create SDR Project (🡒)"><i class="fa-fw fas fa-chevron-right"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-more" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="More"><i class="fa-fw fas fa-ellipsis-v"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper">
+                  <div class="topbar-area topbar-area-more" data-area="more">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div id="R-main-overlay"></div>
+      <main id="R-body-inner" class="highlightable petalinux" tabindex="-1">
+        <div class="flex-block-wrapper">
+<article class="default">
+  <header class="headline">
+  </header>
+
+<h1 id="install-petalinux-20221-in-docker">Install PetaLinux 2022.1 in Docker</h1>
+
+<h2 id="安裝-docker">安裝 Docker</h2>
+<h3 id="ubuntu">Ubuntu</h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Shell" data-lang="Shell"><span style="display:flex;"><span>apt install docker.io docker-buildx</span></span></code></pre></div>
+<h3 id="archlinux">ArchLinux</h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Shell" data-lang="Shell"><span style="display:flex;"><span>pacman -S docker docker-buildx</span></span></code></pre></div>
+<h2 id="建立-docker-image">建立 Docker image</h2>
+<h3 id="ubuntu-2004">Ubuntu 20.04</h3>
+<p><a href="https://drive.google.com/file/d/19tjlgCNvXRbWFOOb1KQi-rv-QpohIt2d/view?usp=drive_link" rel="external" target="_blank">Dockerfile.ubuntu20.04</a></p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Shell" data-lang="Shell"><span style="display:flex;"><span>$ docker build --no-cache -t petalinux.build:20.04 -f Dockerfile.ubuntu20.04 .</span></span></code></pre></div>
+<p>檢視 docker image 建立結果</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Shell" data-lang="Shell"><span style="display:flex;"><span>$ docker images
+</span></span><span style="display:flex;"><span>REPOSITORY        TAG       IMAGE ID       CREATED          SIZE
+</span></span><span style="display:flex;"><span>petalinux.build   20.04     0ff139a32236   <span style="color:#ae81ff">24</span> seconds ago   1.05GB</span></span></code></pre></div>
+<h3 id="ubuntu-1804">Ubuntu 18.04</h3>
+<p><a href="https://drive.google.com/file/d/1qWDwN4JP4nXVEr4raIf2Gx30GY7sTqQw/view?usp=drive_link" rel="external" target="_blank">Dockerfile.ubuntu18.04</a></p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Shell" data-lang="Shell"><span style="display:flex;"><span>$ docker build --no-cache -t petalinux.build:18.04 -f Dockerfile.ubuntu18.04 .</span></span></code></pre></div>
+<p>檢視 docker image 建立結果</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Shell" data-lang="Shell"><span style="display:flex;"><span>$ docker images                                                     
+</span></span><span style="display:flex;"><span>REPOSITORY        TAG       IMAGE ID       CREATED          SIZE
+</span></span><span style="display:flex;"><span>petalinux.build   18.04     c0fec72ff948   <span style="color:#ae81ff">10</span> seconds ago   854MB</span></span></code></pre></div>
+<hr>
+<h2 id="建立及啓動-docker-container">建立及啓動 Docker container</h2>
+<h3 id="建立和檢視-docker-container">建立和檢視 Docker container</h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Shell" data-lang="Shell"><span style="display:flex;"><span>docker create -it &lt;image&gt;</span></span></code></pre></div>
+<blockquote>
+<p>option -it 要指定，才能正確進入 container<br>
+<code>-i, --interactive                      Keep STDIN open even if not attached</code><br>
+<code>-t, --tty                              Allocate a pseudo-TTY</code></p>
+</blockquote>
+<p>檢視 docker image 建立結果</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Shell" data-lang="Shell"><span style="display:flex;"><span>docker ps -a
+</span></span><span style="display:flex;"><span>docker container ls -a</span></span></code></pre></div>
+<p>例如建立一個依附於 image <code>0ff139a32236</code> 的 container</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Shell" data-lang="Shell"><span style="display:flex;"><span>$ docker create 0ff139a32236
+</span></span><span style="display:flex;"><span>3b36f11cd26e6b38d7585ab12db0aa119eca25117bb0b1a39fefba8ddefaa624
+</span></span><span style="display:flex;"><span>$ docker ps -a
+</span></span><span style="display:flex;"><span>CONTAINER ID   IMAGE          COMMAND       CREATED          STATUS                      PORTS     NAMES
+</span></span><span style="display:flex;"><span>3b36f11cd26e   0ff139a32236   <span style="color:#e6db74">&#34;/bin/bash&#34;</span>   <span style="color:#ae81ff">30</span> seconds ago   Created                               inspiring_dijkstra</span></span></code></pre></div>
+<h3 id="啓動-container">啓動 container</h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Shell" data-lang="Shell"><span style="display:flex;"><span>docker container start &lt;container_id&gt;</span></span></code></pre></div>
+<p>例如啓動 container <code>3b36f11cd26e</code></p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Shell" data-lang="Shell"><span style="display:flex;"><span>$ docker container start 3b36f11cd26e
+</span></span><span style="display:flex;"><span>3b36f11cd26e
+</span></span><span style="display:flex;"><span>$ docker ps -a
+</span></span><span style="display:flex;"><span>CONTAINER ID   IMAGE          COMMAND       CREATED          STATUS                      PORTS     NAMES
+</span></span><span style="display:flex;"><span>3b36f11cd26e   0ff139a32236   <span style="color:#e6db74">&#34;/bin/bash&#34;</span>   <span style="color:#ae81ff">9</span> minutes ago    Exited <span style="color:#f92672">(</span>0<span style="color:#f92672">)</span> <span style="color:#ae81ff">8</span> seconds ago              inspiring_dijkstra</span></span></code></pre></div>
+<h3 id="進入-container">進入 container</h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Shell" data-lang="Shell"><span style="display:flex;"><span>docker container attach &lt;container_id&gt;</span></span></code></pre></div>
+<p>例如進入 container <code>3b36f11cd26e</code></p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Shell" data-lang="Shell"><span style="display:flex;"><span>$ docker attach 3b36f11cd26e
+</span></span><span style="display:flex;"><span>petalinux@3b36f11cd26e:~$ </span></span></code></pre></div>
+<hr>
+<h2 id="安裝-petalinux-20221">安裝 PetaLinux 2022.1</h2>
+<p>完整安裝步驟請見 PetaLinux Tools Documentation: Reference Guide (UG1144) 的 <a href="https://docs.amd.com/r/2022.1-English/ug1144-petalinux-tools-reference-guide/Installation-Steps" rel="external" target="_blank">Installation Steps</a></p>
+<h3 id="下載-petalinux-20221-installer">下載 PetaLinux 2022.1 installer</h3>
+<p>進入 <a href="https://www.xilinx.com/member/forms/download/xef.html?filename=petalinux-v2022.1-04191534-installer.run" rel="external" target="_blank">https://www.xilinx.com/member/forms/download/xef.html?filename=petalinux-v2022.1-04191534-installer.run</a> 下載</p>
+<blockquote>
+<p>須要註冊帳號</p>
+</blockquote>
+<p>下載後依照 PetaLinux Tools Documentation: Reference Guide (UG1144) 的 <a href="https://docs.amd.com/r/2022.1-English/ug1144-petalinux-tools-reference-guide/Installing-the-PetaLinux-Tool" rel="external" target="_blank">Installing the PetaLinux Tool</a> 的說明進行安裝</p>
+<p>在 docker container 中安裝 PetaLinux 可有幾種選擇</p>
+<ul>
+<li>直接安裝在 docker container 中
+<ul>
+<li>優點: 簡單</li>
+<li>缺點:
+<ul>
+<li>若有超過一個 docker container 會用到 PetaLinux，例如 Ubuntu 20.04 和 18.04，則會有多份 PetaLinux</li>
+<li>若不小心移除未更新到 image 的 container，則所有 container 中的資料都會消失</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>安裝在 host，再連接進 docker container
+<ul>
+<li>優點: docker container 可共用 PetaLinux</li>
+<li>缺點:
+<ul>
+<li>建立 docker container 時須指定 volume 連接</li>
+<li>host 及 container 共用 volume 的 user 及 group ID 要相同</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>直接安裝在 docker container 的方式依照 reference guide 的說明安裝即可</p>
+<p>以下爲安裝 PetaLinux 在 host 的說明</p>
+<ul>
+<li>PetaLinux 2022.1 installer: <code>petalinux-v2022.1-04191534-installer.run</code></li>
+<li>共用 volume: <code>/opt</code></li>
+<li>PetaLinux 安裝目錄: <code>/opt/petalinux/2022.1</code></li>
+</ul>
+<h3 id="create-docker-container">Create docker container</h3>
+<p>以 host 及 docker container 共用 /opt 目錄爲例</p>
+<p>image 和 container ID 請以實際的 ID 爲主</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Shell" data-lang="Shell"><span style="display:flex;"><span>$ docker create -it --privileged -v /opt:/opt &lt;image&gt;</span></span></code></pre></div>
+<ul>
+<li><code>--privileged</code>: 給 container 更多的權限來讀寫 device<br>
+如果要在 docker 中寫 USB storage，一定要有此設定</li>
+<li><code>-v</code>: <code>--volume</code>，連接 host 及 contaiuner 的 volume<br>
+例如  <code>-v /opt:/opt</code> 是把 host 的 /opt 目錄連接到 container 的 /opt 目錄</li>
+</ul>
+<h3 id="進入-container-1">進入 container</h3>
+<p>須先 start container，再 attach container</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Shell" data-lang="Shell"><span style="display:flex;"><span>docker start &lt;container_id&gt;
+</span></span><span style="display:flex;"><span>docker attach &lt;container_id&gt;</span></span></code></pre></div>
+<p>例如進入 ID 爲 <code>c53a34cb0657</code> 的 container</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Shell" data-lang="Shell"><span style="display:flex;"><span>$ docker start c53a34cb0657
+</span></span><span style="display:flex;"><span>c53a34cb0657
+</span></span><span style="display:flex;"><span>$ docker attach c53a34cb0657
+</span></span><span style="display:flex;"><span>petalinux@c53a34cb0657:~$ </span></span></code></pre></div>
+<h3 id="安裝-petaliinux">安裝 PetaLiinux</h3>
+<h4 id="in-host">In host</h4>
+<ul>
+<li>Create directory /opt/petalinux and change owner
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Shell" data-lang="Shell"><span style="display:flex;"><span>sudo mkdir /opt/petalinux
+</span></span><span style="display:flex;"><span>sudo chown 1000:1000 /opt/petalinux</span></span></code></pre></div>
+</li>
+<li>把下載的 PetaLinux installer <code>petalinux-v2022.1-04191534-installer.run</code>複製到 <code>/opt/petalinux</code><br>
+必要時要變更 owner</li>
+</ul>
+<h4 id="in-container">In container</h4>
+<ul>
+<li>執行 <code>/opt/petalinux/petalinux-v2022.1-04191534-installer.run</code> 安裝 PetaLinux 到 <code>/opt/petalinux/2022.1</code>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Shell" data-lang="Shell"><span style="display:flex;"><span>$ /opt/petalinux/petalinux-v2022.1-04191534-installer.run -d /opt/petalinux/2022.1</span></span></code></pre></div>
+</li>
+</ul>
+
+  <footer class="footline">
+  </footer>
+</article>
+        </div>
+      </main>
+    </div>
+    <aside id="R-sidebar" class="default-animation">
+      <div id="R-header-topbar" class="default-animation"></div>
+      <div id="R-header-wrapper" class="default-animation">
+        <div id="R-header" class="default-animation">
+          <a id="R-logo" class="R-default" href="../../index.html">
+            ULinkSat
+          </a>
+        </div>
+        <script>
+          window.index_js_url="../../searchindex.en.js?1737895960";
+        </script>
+        <search><form action="../../search/index.html" method="get">
+          <div class="searchbox default-animation">
+            <button class="search-detail" type="submit" title="Search (CTRL+ALT+f)"><i class="fas fa-search"></i></button>
+            <label class="a11y-only" for="R-search-by">Search</label>
+            <input data-search-input id="R-search-by" name="search-by" class="search-by" type="search" placeholder="Search...">
+            <button class="search-clear" type="button" data-search-clear="" title="Clear search"><i class="fas fa-times" title="Clear search"></i></button>
+          </div>
+        </form></search>
+        <script>
+          var contentLangs=['en'];
+        </script>
+        <script src="../../js/auto-complete.js?1737895960" defer></script>
+        <script src="../../js/lunr/lunr.min.js?1737895960" defer></script>
+        <script src="../../js/lunr/lunr.stemmer.support.min.js?1737895960" defer></script>
+        <script src="../../js/lunr/lunr.multi.min.js?1737895960" defer></script>
+        <script src="../../js/lunr/lunr.en.min.js?1737895960" defer></script>
+        <script src="../../js/search.js?1737895960" defer></script>
+      </div>
+      <div id="R-homelinks" class="default-animation homelinks">
+        <ul>
+          <li><a class="padding" href="../../index.html"><i class="fa-fw fas fa-home"></i> Home</a></li>
+        </ul>
+        <hr class="padding">
+      </div>
+      <div id="R-content-wrapper" class="highlightable">
+        <div id="R-shortcutmenu-home" class="R-sidebarmenu">
+          <ul class="enlarge morespace collapsible-menu">
+            <li class="parent " data-nav-id="/petalinux/index.html"><a class="padding" href="../../petalinux/index.html">Petalinux</a><ul id="R-subsections-2781be08bbf107164e99b4791835c73d" class="collapsible-menu">
+            <li class="active " data-nav-id="/petalinux/petalinux-in-docker/index.html"><a class="padding" href="../../petalinux/petalinux-in-docker/index.html">Install PetaLinux 2022.1 in Docker</a></li>
+            <li class="" data-nav-id="/petalinux/create-sdr-project/index.html"><a class="padding" href="../../petalinux/create-sdr-project/index.html">Create SDR Project</a></li>
+            <li class="" data-nav-id="/petalinux/build-petalinux-os-image/index.html"><a class="padding" href="../../petalinux/build-petalinux-os-image/index.html">Build PetaLinux OS Image</a></li>
+            <li class="" data-nav-id="/petalinux/change-rootfs-jffs2/index.html"><a class="padding" href="../../petalinux/change-rootfs-jffs2/index.html">Change RootFS to JFFS2</a></li>
+            <li class="" data-nav-id="/petalinux/flash-os-image/index.html"><a class="padding" href="../../petalinux/flash-os-image/index.html">Flash OS image</a></li></ul></li>
+          </ul>
+        </div>
+    
+        <div class="padding footermargin footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showFooter"></div>
+        <div id="R-menu-footer">
+          <hr class="padding default-animation footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showFooter">
+          <div id="R-prefooter" class="footerLangSwitch footerVariantSwitch footerVisitedLinks">
+            <ul>
+              <li id="R-select-language-container" class="footerLangSwitch">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-language"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <label class="a11y-only" for="R-select-language">Language</label>
+                    <select id="R-select-language" onchange="location = this.querySelector( this.value ).dataset.url;">
+                      <option id="R-select-language-en" value="#R-select-language-en" data-url="../../petalinux/petalinux-in-docker/index.html" lang="en-us" selected></option>
+                    </select>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+              </li>
+              <li id="R-select-variant-container" class="footerVariantSwitch">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-paint-brush"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <label class="a11y-only" for="R-select-variant">Theme</label>
+                    <select id="R-select-variant" onchange="window.relearn.changeVariant( this.value );">
+                      <option id="R-select-variant-auto" value="auto" selected>Auto</option>
+                    </select>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+                <script>window.relearn.markVariant();</script>
+              </li>
+              <li class="footerVisitedLinks">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-history"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <button onclick="clearHistory();">Clear History</button>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div id="R-footer" class="footerFooter showFooter">
+        <p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn" title="love"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p>
+          </div>
+        </div>
+      </div>
+    </aside>
+    <script src="../../js/clipboard.min.js?1737895960" defer></script>
+    <script src="../../js/perfect-scrollbar.min.js?1737895960" defer></script>
+    <script src="../../js/theme.js?1737895960" defer></script>
+  </body>
+</html>
