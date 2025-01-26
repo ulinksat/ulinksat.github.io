@@ -1,6 +1,0 @@
-name: ULinkSat
-markdown: 
-	input: kramdown
-	syntax_highlighter: coderay
-kramdown:
-  math_engine: mathjax
