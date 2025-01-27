@@ -59,7 +59,7 @@
     --INTERNAL-MAIN-TITLES-H6-font-weight: var(--MAIN-TITLES-H6-font-weight, var(--INTERNAL-MAIN-TITLES-H5-font-weight));
     --INTERNAL-MAIN-TITLES-H6-letter-spacing: var(--MAIN-TITLES-H6-letter-spacing, var(--INTERNAL-MAIN-TITLES-H5-letter-spacing));
 
-    --INTERNAL-CODE-font: var(--CODE-font, "Consolas", menlo, monospace);
+    --INTERNAL-CODE-font: var(--CODE-font, "Cascadia", menlo, monospace);
     --INTERNAL-CODE-font-variation-settings: var(--CODE-font-variation-settings, normal);
     --INTERNAL-CODE-font-weight: var(--CODE-font-weight, 300);
     --INTERNAL-CODE-letter-spacing: var(--CODE-letter-spacing, normal);
@@ -142,7 +142,7 @@
 
     /* print style, values taken from relearn-light as it is used as a default print style */
     --INTERNAL-PRINT-MAIN-BG-color: var(--PRINT-MAIN-BG-color, rgba( 255, 255, 255, 1 ));
-    --INTERNAL-PRINT-CODE-font: var(--PRINT-CODE-font, "Consolas", menlo, monospace);
+    --INTERNAL-PRINT-CODE-font: var(--PRINT-CODE-font, "Cascadia", menlo, monospace);
     --INTERNAL-PRINT-TAG-BG-color: var(--PRINT-TAG-BG-color, rgba( 125, 201, 3, 1 ));
     --INTERNAL-PRINT-MAIN-font: var(--PRINT-MAIN-font, "Roboto Flex", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif);
     --INTERNAL-PRINT-MAIN-TEXT-color: var(--PRINT-MAIN-TEXT-color, rgba( 16, 16, 16, 1 ));
@@ -874,7 +874,7 @@ a:focus,
   margin: 1.2rem 0 0.8rem 0;
   padding-inline-start: 1rem;
   text-rendering: optimizeLegibility;
-  text-transform: uppercase;
+/*  text-transform: uppercase; */
 }
 
 #R-sidebar .footermargin {
@@ -1168,7 +1168,7 @@ h1 {
   overflow-x: hidden;
   text-align: center;
   text-rendering: optimizeLegibility;
-  text-transform: uppercase;
+/*  text-transform: uppercase; */
 }
 
 #R-body-inner > .flex-block-wrapper article.narrow h1 {
@@ -1284,7 +1284,7 @@ blockquote {
 }
 
 blockquote p {
-  font-size: 1.06640625rem;
+  font-size: 1.0rem;
   font-style: italic;
   opacity: 0.75;
   text-align: justify;
@@ -1459,6 +1459,7 @@ code.copy-to-clipboard-code {
   border-end-end-radius: 0;
   border-start-end-radius: 0;
   border-inline-end-width: 0;
+  font-size: 0.8rem;
 }
 
 pre:not(.mermaid) {
@@ -1488,7 +1489,7 @@ pre:not(.mermaid) code {
   color: inherit;
   -webkit-print-color-adjust: economy;
   color-adjust: economy;
-  font-size: 0.9375rem;
+  font-size: 0.75rem;
   margin: 0;
   padding: 0;
 }
@@ -1576,6 +1577,7 @@ table {
   margin-bottom: 1rem;
   margin-top: 1rem;
   table-layout: auto;
+  font-size: 0.8rem;
 }
 
 th,
@@ -2931,7 +2933,7 @@ a#R-logo {
   font-weight: var(--INTERNAL-MAIN-TITLES-H4-font-weight);
   font-family: var(--INTERNAL-MAIN-TITLES-H4-font);
   letter-spacing: var(--INTERNAL-MAIN-TITLES-H4-letter-spacing);
-  text-transform: uppercase;
+/*  text-transform: uppercase; */
   white-space: nowrap;
 }
 a#R-logo:hover {

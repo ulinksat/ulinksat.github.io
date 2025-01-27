@@ -59,7 +59,7 @@
     --INTERNAL-MAIN-TITLES-H6-font-weight: var(--MAIN-TITLES-H6-font-weight, var(--INTERNAL-MAIN-TITLES-H5-font-weight));
     --INTERNAL-MAIN-TITLES-H6-letter-spacing: var(--MAIN-TITLES-H6-letter-spacing, var(--INTERNAL-MAIN-TITLES-H5-letter-spacing));
 
-    --INTERNAL-CODE-font: var(--CODE-font, "Consolas", menlo, monospace);
+    --INTERNAL-CODE-font: var(--CODE-font, "Cascadia", menlo, monospace);
     --INTERNAL-CODE-font-variation-settings: var(--CODE-font-variation-settings, normal);
     --INTERNAL-CODE-font-weight: var(--CODE-font-weight, 300);
     --INTERNAL-CODE-letter-spacing: var(--CODE-letter-spacing, normal);
@@ -142,7 +142,7 @@
 
     /* print style, values taken from relearn-light as it is used as a default print style */
     --INTERNAL-PRINT-MAIN-BG-color: var(--PRINT-MAIN-BG-color, rgba( 255, 255, 255, 1 ));
-    --INTERNAL-PRINT-CODE-font: var(--PRINT-CODE-font, "Consolas", menlo, monospace);
+    --INTERNAL-PRINT-CODE-font: var(--PRINT-CODE-font, "Cascadia", menlo, monospace);
     --INTERNAL-PRINT-TAG-BG-color: var(--PRINT-TAG-BG-color, rgba( 125, 201, 3, 1 ));
     --INTERNAL-PRINT-MAIN-font: var(--PRINT-MAIN-font, "Roboto Flex", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif);
     --INTERNAL-PRINT-MAIN-TEXT-color: var(--PRINT-MAIN-TEXT-color, rgba( 16, 16, 16, 1 ));
