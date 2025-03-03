@@ -5,31 +5,31 @@
     <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <meta name="generator" content="Hugo 0.143.1">
     <meta name="generator" content="Relearn 7.3.1">
-    <meta name="description" content="ULinkSat-SDR.release.bsp 的 rootfs 爲 Ext4，請依需求執行 petalinux-config 自行調整 此處僅說明 RootFS 爲 Ext4 及 JFFS2 的燒錄方式，其餘方式請參閱 PetaLinux Tools Documentation: Reference Guide (UG1144) Ext4 利用 tar.gz 包 參考 PetaLinux Tools Documentation: Reference Guide (UG1144) 的 Booting PetaLinux Image on Hardware with an SD Card 說明製作 bootable SD card">
+    <meta name="description" content="ULinkSat-SDR.release.bsp 的 rootfs 爲 Ext4，請依需求執行 petalinux-config 自行調整 此處僅說明 RootFS 爲 Ext4 及 JFFS2 的燒錄方式，其餘方式請參閱 PetaLinux Tools Documentation: Reference Guide (UG1144) OS image 下載 URL 請見 SDR OS Image List Ext4 利用 tar.gz 包 參考 PetaLinux Tools Documentation: Reference Guide (UG1144) 的 Booting PetaLinux Image on Hardware with an SD Card 說明製作 bootable SD card">
     <meta name="author" content="">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Flash OS image :: ULinkSat">
-    <meta name="twitter:description" content="ULinkSat-SDR.release.bsp 的 rootfs 爲 Ext4，請依需求執行 petalinux-config 自行調整 此處僅說明 RootFS 爲 Ext4 及 JFFS2 的燒錄方式，其餘方式請參閱 PetaLinux Tools Documentation: Reference Guide (UG1144) Ext4 利用 tar.gz 包 參考 PetaLinux Tools Documentation: Reference Guide (UG1144) 的 Booting PetaLinux Image on Hardware with an SD Card 說明製作 bootable SD card">
+    <meta name="twitter:description" content="ULinkSat-SDR.release.bsp 的 rootfs 爲 Ext4，請依需求執行 petalinux-config 自行調整 此處僅說明 RootFS 爲 Ext4 及 JFFS2 的燒錄方式，其餘方式請參閱 PetaLinux Tools Documentation: Reference Guide (UG1144) OS image 下載 URL 請見 SDR OS Image List Ext4 利用 tar.gz 包 參考 PetaLinux Tools Documentation: Reference Guide (UG1144) 的 Booting PetaLinux Image on Hardware with an SD Card 說明製作 bootable SD card">
     <meta property="og:url" content="http://localhost:1313/petalinux/flash-os-image/index.html">
     <meta property="og:site_name" content="ULinkSat">
     <meta property="og:title" content="Flash OS image :: ULinkSat">
-    <meta property="og:description" content="ULinkSat-SDR.release.bsp 的 rootfs 爲 Ext4，請依需求執行 petalinux-config 自行調整 此處僅說明 RootFS 爲 Ext4 及 JFFS2 的燒錄方式，其餘方式請參閱 PetaLinux Tools Documentation: Reference Guide (UG1144) Ext4 利用 tar.gz 包 參考 PetaLinux Tools Documentation: Reference Guide (UG1144) 的 Booting PetaLinux Image on Hardware with an SD Card 說明製作 bootable SD card">
+    <meta property="og:description" content="ULinkSat-SDR.release.bsp 的 rootfs 爲 Ext4，請依需求執行 petalinux-config 自行調整 此處僅說明 RootFS 爲 Ext4 及 JFFS2 的燒錄方式，其餘方式請參閱 PetaLinux Tools Documentation: Reference Guide (UG1144) OS image 下載 URL 請見 SDR OS Image List Ext4 利用 tar.gz 包 參考 PetaLinux Tools Documentation: Reference Guide (UG1144) 的 Booting PetaLinux Image on Hardware with an SD Card 說明製作 bootable SD card">
     <meta property="og:locale" content="en_us">
     <meta property="og:type" content="article">
     <meta property="article:section" content="Petalinux">
     <meta property="article:published_time" content="2025-01-12T20:47:46+08:00">
     <meta property="article:modified_time" content="2025-01-12T20:47:46+08:00">
     <meta itemprop="name" content="Flash OS image :: ULinkSat">
-    <meta itemprop="description" content="ULinkSat-SDR.release.bsp 的 rootfs 爲 Ext4，請依需求執行 petalinux-config 自行調整 此處僅說明 RootFS 爲 Ext4 及 JFFS2 的燒錄方式，其餘方式請參閱 PetaLinux Tools Documentation: Reference Guide (UG1144) Ext4 利用 tar.gz 包 參考 PetaLinux Tools Documentation: Reference Guide (UG1144) 的 Booting PetaLinux Image on Hardware with an SD Card 說明製作 bootable SD card">
+    <meta itemprop="description" content="ULinkSat-SDR.release.bsp 的 rootfs 爲 Ext4，請依需求執行 petalinux-config 自行調整 此處僅說明 RootFS 爲 Ext4 及 JFFS2 的燒錄方式，其餘方式請參閱 PetaLinux Tools Documentation: Reference Guide (UG1144) OS image 下載 URL 請見 SDR OS Image List Ext4 利用 tar.gz 包 參考 PetaLinux Tools Documentation: Reference Guide (UG1144) 的 Booting PetaLinux Image on Hardware with an SD Card 說明製作 bootable SD card">
     <meta itemprop="datePublished" content="2025-01-12T20:47:46+08:00">
     <meta itemprop="dateModified" content="2025-01-12T20:47:46+08:00">
-    <meta itemprop="wordCount" content="579">
+    <meta itemprop="wordCount" content="600">
     <title>Flash OS image :: ULinkSat</title>
-    <link href="../../css/fontawesome-all.min.css?1740883591" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/fontawesome-all.min.css?1740883591" rel="stylesheet"></noscript>
-    <link href="../../css/auto-complete.css?1740883591" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/auto-complete.css?1740883591" rel="stylesheet"></noscript>
-    <link href="../../css/perfect-scrollbar.min.css?1740883591" rel="stylesheet">
-    <link href="../../css/theme.css?1740883591" rel="stylesheet">
-    <link href="../../css/format-html.css?1740883591" rel="stylesheet" id="R-format-style">
+    <link href="../../css/fontawesome-all.min.css?1740975724" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/fontawesome-all.min.css?1740975724" rel="stylesheet"></noscript>
+    <link href="../../css/auto-complete.css?1740975724" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/auto-complete.css?1740975724" rel="stylesheet"></noscript>
+    <link href="../../css/perfect-scrollbar.min.css?1740975724" rel="stylesheet">
+    <link href="../../css/theme.css?1740975724" rel="stylesheet">
+    <link href="../../css/format-html.css?1740975724" rel="stylesheet" id="R-format-style">
     <script>
       window.relearn = window.relearn || {};
       window.relearn.relBasePath='..\/..';
@@ -144,6 +144,7 @@
 <ul>
 <li><a href="https://drive.google.com/file/d/1G5KvSNHeh9afg2nyq2xjCmeNE-C3sm1R/view?usp=drive_link" rel="external" target="_blank">ULinkSat-SDR.release.bsp</a> 的 rootfs 爲 Ext4，請依需求執行 <code>petalinux-config</code> 自行調整</li>
 <li>此處僅說明 RootFS 爲 Ext4 及 JFFS2 的燒錄方式，其餘方式請參閱 <a href="https://docs.amd.com/r/2022.1-English/ug1144-petalinux-tools-reference-guide" rel="external" target="_blank">PetaLinux Tools Documentation: Reference Guide (UG1144)</a></li>
+<li>OS image 下載 URL 請見 <a href="https://ulinksat.github.io/petalinux/os-image-list/index.html" rel="external" target="_blank">SDR OS Image List</a></li>
 </ul></blockquote>
 <h2 id="ext4">Ext4</h2>
 <h3 id="利用-targz-包">利用 tar.gz 包</h3>
@@ -194,6 +195,7 @@
 <p>從 Google Drive 下載 <a href="https://drive.google.com/file/d/1BTIJtjsYNHq3YznLHcatpLUHhZRQMv7a/view?usp=drive_link" rel="external" target="_blank">vitis_progflash_zynq.7z</a> 並解壓到你指定的路徑</p>
 <h3 id="燒錄">燒錄</h3>
 <h4 id="sdr-切換到-jtag-mode">SDR 切換到 JTAG mode</h4>
+<p>切換方式請見 <a href="https://ulinksat.github.io/petalinux/boot-mode/index.html" rel="external" target="_blank">Boot Mode</a> 說明</p>
 <h4 id="使用-vitis-gui-進行燒錄">使用 Vitis GUI 進行燒錄</h4>
 <p>請參考 Vitis document 操作</p>
 <h4 id="使用-vitis-cli-command-program_flash">使用 Vitis CLI command <code>program_flash</code></h4>
@@ -237,7 +239,7 @@
           </a>
         </div>
         <script>
-          window.index_js_url="../../searchindex.en.js?1740883591";
+          window.index_js_url="../../searchindex.en.js?1740975724";
         </script>
         <search><form action="../../search/index.html" method="get">
           <div class="searchbox default-animation">
@@ -250,12 +252,12 @@
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="../../js/auto-complete.js?1740883591" defer></script>
-        <script src="../../js/lunr/lunr.min.js?1740883591" defer></script>
-        <script src="../../js/lunr/lunr.stemmer.support.min.js?1740883591" defer></script>
-        <script src="../../js/lunr/lunr.multi.min.js?1740883591" defer></script>
-        <script src="../../js/lunr/lunr.en.min.js?1740883591" defer></script>
-        <script src="../../js/search.js?1740883591" defer></script>
+        <script src="../../js/auto-complete.js?1740975724" defer></script>
+        <script src="../../js/lunr/lunr.min.js?1740975724" defer></script>
+        <script src="../../js/lunr/lunr.stemmer.support.min.js?1740975724" defer></script>
+        <script src="../../js/lunr/lunr.multi.min.js?1740975724" defer></script>
+        <script src="../../js/lunr/lunr.en.min.js?1740975724" defer></script>
+        <script src="../../js/search.js?1740975724" defer></script>
       </div>
       <div id="R-homelinks" class="default-animation homelinks">
         <ul>
@@ -267,6 +269,7 @@
         <div id="R-shortcutmenu-home" class="R-sidebarmenu">
           <ul class="enlarge morespace collapsible-menu">
             <li class="parent " data-nav-id="/petalinux/index.html"><a class="padding" href="../../petalinux/index.html">Petalinux</a><ul id="R-subsections-2781be08bbf107164e99b4791835c73d" class="collapsible-menu">
+            <li class="" data-nav-id="/petalinux/boot-mode/index.html"><a class="padding" href="../../petalinux/boot-mode/index.html">Boot Mode</a></li>
             <li class="" data-nav-id="/petalinux/petalinux-in-docker/index.html"><a class="padding" href="../../petalinux/petalinux-in-docker/index.html">Install PetaLinux 2022.1 in Docker</a></li>
             <li class="" data-nav-id="/petalinux/create-sdr-project/index.html"><a class="padding" href="../../petalinux/create-sdr-project/index.html">Create SDR Project</a></li>
             <li class="" data-nav-id="/petalinux/build-petalinux-os-image/index.html"><a class="padding" href="../../petalinux/build-petalinux-os-image/index.html">Build PetaLinux OS Image</a></li>
@@ -326,8 +329,8 @@
         </div>
       </div>
     </aside>
-    <script src="../../js/clipboard.min.js?1740883591" defer></script>
-    <script src="../../js/perfect-scrollbar.min.js?1740883591" defer></script>
-    <script src="../../js/theme.js?1740883591" defer></script>
+    <script src="../../js/clipboard.min.js?1740975724" defer></script>
+    <script src="../../js/perfect-scrollbar.min.js?1740975724" defer></script>
+    <script src="../../js/theme.js?1740975724" defer></script>
   </body>
 </html>
