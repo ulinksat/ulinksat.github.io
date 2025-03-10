@@ -48,7 +48,7 @@
       <link>http://localhost:1313/petalinux/flash-os-image/index.html</link>
       <pubDate>Sun, 12 Jan 2025 20:47:46 +0800</pubDate>
       <guid>http://localhost:1313/petalinux/flash-os-image/index.html</guid>
-      <description>ULinkSat-SDR.release.bsp 的 rootfs 爲 Ext4，請依需求執行 petalinux-config 自行調整 此處僅說明 RootFS 爲 Ext4 及 JFFS2 的燒錄方式，其餘方式請參閱 PetaLinux Tools Documentation: Reference Guide (UG1144) OS image 下載 URL 請見 SDR OS Image List Ext4 利用 tar.gz 包 參考 PetaLinux Tools Documentation: Reference Guide (UG1144) 的 Booting PetaLinux Image on Hardware with an SD Card 說明製作 bootable SD card</description>
+      <description>ULinkSat-SDR.release.bsp 的 rootfs 爲 Ext4，請依需求執行 petalinux-config 自行調整 此處僅說明 RootFS 爲 Ext4 及 JFFS2 的燒錄方式，其餘方式請參閱 PetaLinux Tools Documentation: Reference Guide (UG1144) OS image 下載 URL 請見 SDR OS Image List Ext4 使用 tar.gz 包 參考 PetaLinux Tools Documentation: Reference Guide (UG1144) 的 Booting PetaLinux Image on Hardware with an SD Card 說明製作 bootable SD card</description>
     </item>
     <item>
       <title>SDR OS Image List</title>
