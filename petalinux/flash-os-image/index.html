@@ -5,31 +5,31 @@
     <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <meta name="generator" content="Hugo 0.145.0">
     <meta name="generator" content="Relearn 7.3.1">
-    <meta name="description" content="ULinkSat-SDR.release.bsp 的 rootfs 爲 Ext4，請依需求執行 petalinux-config 自行調整 此處僅說明 RootFS 爲 Ext4 及 JFFS2 的燒錄方式，其餘方式請參閱 PetaLinux Tools Documentation: Reference Guide (UG1144) OS image 下載 URL 請見 SDR OS Image List Ext4 利用 tar.gz 包 參考 PetaLinux Tools Documentation: Reference Guide (UG1144) 的 Booting PetaLinux Image on Hardware with an SD Card 說明製作 bootable SD card">
+    <meta name="description" content="ULinkSat-SDR.release.bsp 的 rootfs 爲 Ext4，請依需求執行 petalinux-config 自行調整 此處僅說明 RootFS 爲 Ext4 及 JFFS2 的燒錄方式，其餘方式請參閱 PetaLinux Tools Documentation: Reference Guide (UG1144) OS image 下載 URL 請見 SDR OS Image List Ext4 使用 tar.gz 包 參考 PetaLinux Tools Documentation: Reference Guide (UG1144) 的 Booting PetaLinux Image on Hardware with an SD Card 說明製作 bootable SD card">
     <meta name="author" content="">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Flash OS image :: ULinkSat">
-    <meta name="twitter:description" content="ULinkSat-SDR.release.bsp 的 rootfs 爲 Ext4，請依需求執行 petalinux-config 自行調整 此處僅說明 RootFS 爲 Ext4 及 JFFS2 的燒錄方式，其餘方式請參閱 PetaLinux Tools Documentation: Reference Guide (UG1144) OS image 下載 URL 請見 SDR OS Image List Ext4 利用 tar.gz 包 參考 PetaLinux Tools Documentation: Reference Guide (UG1144) 的 Booting PetaLinux Image on Hardware with an SD Card 說明製作 bootable SD card">
+    <meta name="twitter:description" content="ULinkSat-SDR.release.bsp 的 rootfs 爲 Ext4，請依需求執行 petalinux-config 自行調整 此處僅說明 RootFS 爲 Ext4 及 JFFS2 的燒錄方式，其餘方式請參閱 PetaLinux Tools Documentation: Reference Guide (UG1144) OS image 下載 URL 請見 SDR OS Image List Ext4 使用 tar.gz 包 參考 PetaLinux Tools Documentation: Reference Guide (UG1144) 的 Booting PetaLinux Image on Hardware with an SD Card 說明製作 bootable SD card">
     <meta property="og:url" content="http://localhost:1313/petalinux/flash-os-image/index.html">
     <meta property="og:site_name" content="ULinkSat">
     <meta property="og:title" content="Flash OS image :: ULinkSat">
-    <meta property="og:description" content="ULinkSat-SDR.release.bsp 的 rootfs 爲 Ext4，請依需求執行 petalinux-config 自行調整 此處僅說明 RootFS 爲 Ext4 及 JFFS2 的燒錄方式，其餘方式請參閱 PetaLinux Tools Documentation: Reference Guide (UG1144) OS image 下載 URL 請見 SDR OS Image List Ext4 利用 tar.gz 包 參考 PetaLinux Tools Documentation: Reference Guide (UG1144) 的 Booting PetaLinux Image on Hardware with an SD Card 說明製作 bootable SD card">
+    <meta property="og:description" content="ULinkSat-SDR.release.bsp 的 rootfs 爲 Ext4，請依需求執行 petalinux-config 自行調整 此處僅說明 RootFS 爲 Ext4 及 JFFS2 的燒錄方式，其餘方式請參閱 PetaLinux Tools Documentation: Reference Guide (UG1144) OS image 下載 URL 請見 SDR OS Image List Ext4 使用 tar.gz 包 參考 PetaLinux Tools Documentation: Reference Guide (UG1144) 的 Booting PetaLinux Image on Hardware with an SD Card 說明製作 bootable SD card">
     <meta property="og:locale" content="en_us">
     <meta property="og:type" content="article">
     <meta property="article:section" content="Petalinux">
     <meta property="article:published_time" content="2025-01-12T20:47:46+08:00">
     <meta property="article:modified_time" content="2025-01-12T20:47:46+08:00">
     <meta itemprop="name" content="Flash OS image :: ULinkSat">
-    <meta itemprop="description" content="ULinkSat-SDR.release.bsp 的 rootfs 爲 Ext4，請依需求執行 petalinux-config 自行調整 此處僅說明 RootFS 爲 Ext4 及 JFFS2 的燒錄方式，其餘方式請參閱 PetaLinux Tools Documentation: Reference Guide (UG1144) OS image 下載 URL 請見 SDR OS Image List Ext4 利用 tar.gz 包 參考 PetaLinux Tools Documentation: Reference Guide (UG1144) 的 Booting PetaLinux Image on Hardware with an SD Card 說明製作 bootable SD card">
+    <meta itemprop="description" content="ULinkSat-SDR.release.bsp 的 rootfs 爲 Ext4，請依需求執行 petalinux-config 自行調整 此處僅說明 RootFS 爲 Ext4 及 JFFS2 的燒錄方式，其餘方式請參閱 PetaLinux Tools Documentation: Reference Guide (UG1144) OS image 下載 URL 請見 SDR OS Image List Ext4 使用 tar.gz 包 參考 PetaLinux Tools Documentation: Reference Guide (UG1144) 的 Booting PetaLinux Image on Hardware with an SD Card 說明製作 bootable SD card">
     <meta itemprop="datePublished" content="2025-01-12T20:47:46+08:00">
     <meta itemprop="dateModified" content="2025-01-12T20:47:46+08:00">
-    <meta itemprop="wordCount" content="600">
+    <meta itemprop="wordCount" content="792">
     <title>Flash OS image :: ULinkSat</title>
-    <link href="../../css/fontawesome-all.min.css?1741607521" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/fontawesome-all.min.css?1741607521" rel="stylesheet"></noscript>
-    <link href="../../css/auto-complete.css?1741607521" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/auto-complete.css?1741607521" rel="stylesheet"></noscript>
-    <link href="../../css/perfect-scrollbar.min.css?1741607521" rel="stylesheet">
-    <link href="../../css/theme.css?1741607521" rel="stylesheet">
-    <link href="../../css/format-html.css?1741607521" rel="stylesheet" id="R-format-style">
+    <link href="../../css/fontawesome-all.min.css?1741610053" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/fontawesome-all.min.css?1741610053" rel="stylesheet"></noscript>
+    <link href="../../css/auto-complete.css?1741610053" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/auto-complete.css?1741610053" rel="stylesheet"></noscript>
+    <link href="../../css/perfect-scrollbar.min.css?1741610053" rel="stylesheet">
+    <link href="../../css/theme.css?1741610053" rel="stylesheet">
+    <link href="../../css/format-html.css?1741610053" rel="stylesheet" id="R-format-style">
     <script>
       window.relearn = window.relearn || {};
       window.relearn.relBasePath='..\/..';
@@ -94,8 +94,8 @@
   <ul>
     <li><a href="#ext4">Ext4</a>
       <ul>
-        <li><a href="#利用-targz-包">利用 tar.gz 包</a></li>
-        <li><a href="#利用-wic-image">利用 WIC image</a></li>
+        <li><a href="#使用-targz-包">使用 tar.gz 包</a></li>
+        <li><a href="#使用-wic-image">使用 WIC image</a></li>
       </ul>
     </li>
     <li><a href="#jffs2">JFFS2</a>
@@ -147,10 +147,32 @@
 <li>OS image 下載 URL 請見 <a href="https://ulinksat.github.io/petalinux/os-image-list/index.html" rel="external" target="_blank">SDR OS Image List</a></li>
 </ul></blockquote>
 <h2 id="ext4">Ext4</h2>
-<h3 id="利用-targz-包">利用 tar.gz 包</h3>
+<h3 id="使用-targz-包">使用 tar.gz 包</h3>
 <p>參考 PetaLinux Tools Documentation: Reference Guide (UG1144) 的 <a href="https://docs.amd.com/r/2022.1-English/ug1144-petalinux-tools-reference-guide/Booting-PetaLinux-Image-on-Hardware-with-an-SD-Card" rel="external" target="_blank">Booting PetaLinux Image on Hardware with an SD Card</a> 說明製作 bootable SD card</p>
-<p>ULinkSat 提供 Linux shell script <a href="https://drive.google.com/file/d/1yWu4EHlhasOl4lUP-ryZS7h1YrAPtkvt/view?usp=drive_link" rel="external" target="_blank">prog_ext4_sd.sh</a> 簡化燒錄工作</p>
-<h3 id="利用-wic-image">利用 WIC image</h3>
+<p>ULinkSat 提供 Linux shell script <a href="https://drive.google.com/file/d/1yWu4EHlhasOl4lUP-ryZS7h1YrAPtkvt/view?usp=drive_link" rel="external" target="_blank">prog_ext4_sd.sh</a> 簡化燒錄工作
+<code>prog_ext_sd.sh</code> 會使用 boot 和 rootfs 二個 partition 來存放 u-boot、kernel 及 rootfs</p>
+<ul>
+<li>boot: file system 爲 FAT32</li>
+<li>rootfs: file system 爲 Ext4</li>
+</ul>
+<p><code>prog_ext_sd.sh</code> 的用法如下</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>prog_ext_sd.sh <span style="color:#f92672">[</span>-s src_dir|-b boot_mb|-r rootfs_mb<span style="color:#f92672">]</span> &lt;dest_drv&gt;</span></span></code></pre></div>
+<p><code>-s</code>: 指定 image source 的目錄，預設爲目前目錄</p>
+<p><code>-b</code>: 指定 boot partition 的大小，單位爲 MiB，預設爲 500MiB</p>
+<p><code>-r</code>: 指定 rootfs partition 的大小，單位爲 MiB，預設爲 2048MiB</p>
+<p><code>dest_dir</code>: SD card 的掛載 device</p>
+<p>例如</p>
+<ul>
+<li>
+<p>rootfs partition 配置指定爲 4GiB，SD card 掛載到 /dev/sdc</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>./prog_ext_sd.sh -r <span style="color:#ae81ff">4096</span> /dev/sdc</span></span></code></pre></div>
+</li>
+<li>
+<p>boot partition 配置指定爲 1GiB，rootfs partition 配置指定爲 8GiB，SD card 掛載到 /dev/sde</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>./prog_ext_sd.sh -b <span style="color:#ae81ff">1024</span> -r <span style="color:#ae81ff">8192</span> /dev/sde</span></span></code></pre></div>
+</li>
+</ul>
+<h3 id="使用-wic-image">使用 WIC image</h3>
 <p>製作 WIC image 的方式見 PetaLinux Tools Documentation: Reference Guide (UG1144) <a href="https://docs.amd.com/r/2022.1-English/ug1144-petalinux-tools-reference-guide/petalinux-package-wic-Command-Examples" rel="external" target="_blank">petalinux-package &ndash;wic Command Examples</a></p>
 <p>利用 WIC image 燒錄要注意</p>
 <ul>
@@ -159,7 +181,7 @@
 </li>
 <li>
 <p>要減少燒錄時間可參考 <code>bitmaptool copy --bmap</code> 的方式進行燒錄
-例如燒錄 <code>petalinux-sdimage.wic.xz</code> 到 <code>/dev/sdc</code> 的 commane</p>
+例如燒錄 <code>petalinux-sdimage.wic.xz</code> 到 <code>/dev/sdc</code> 的 command</p>
 <div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>bitmaptool copy --bmap petalinux-sdimage.wic.bmap petalinux-sdimage.wic.xz /dev/sdc</span></span></code></pre></div>
 <blockquote>
 <p><strong>注意</strong><br>
@@ -218,11 +240,13 @@
 <div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>program_flash -fsbl ./zynq_fsbl.elf -multi_image -f rootfs.jffs2 -offsets 0xc40000 -erase_offsets 0xc40000 -erase_sizes 0xc800000 -erase_sector <span style="color:#ae81ff">65536</span> -flash_type qspi-x4-single</span></span></code></pre></div>
 </li>
 </ul>
-<p>​	ULinkSat 提供 Linux shell script <a href="https://drive.google.com/file/d/17U88UA1o0uQyi_7aI-RiirSe-NothWNJ/view?usp=drive_link" rel="external" target="_blank">prog_jffs2.sh</a> 來簡化燒錄工作，此 script 會</p>
+<p>ULinkSat 提供 Linux shell script <a href="https://drive.google.com/file/d/17U88UA1o0uQyi_7aI-RiirSe-NothWNJ/view?usp=drive_link" rel="external" target="_blank">prog_jffs2.sh</a> 來簡化燒錄工作，此 script 會</p>
 <ul>
 <li>從 PetaLinux 的 system config 中取得 erase size</li>
 <li>從 PetaLinux 的 system config 中取得各 partition size 並計算 offset</li>
 </ul>
+<p>使用 <code>prog_jffs2.sh</code> 燒錄 QSPI flash 請在 shell 執行</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>./prog_jffs2.sh</span></span></code></pre></div>
 
   <footer class="footline">
   </footer>
@@ -239,7 +263,7 @@
           </a>
         </div>
         <script>
-          window.index_js_url="../../searchindex.en.js?1741607521";
+          window.index_js_url="../../searchindex.en.js?1741610053";
         </script>
         <search><form action="../../search/index.html" method="get">
           <div class="searchbox default-animation">
@@ -252,12 +276,12 @@
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="../../js/auto-complete.js?1741607521" defer></script>
-        <script src="../../js/lunr/lunr.min.js?1741607521" defer></script>
-        <script src="../../js/lunr/lunr.stemmer.support.min.js?1741607521" defer></script>
-        <script src="../../js/lunr/lunr.multi.min.js?1741607521" defer></script>
-        <script src="../../js/lunr/lunr.en.min.js?1741607521" defer></script>
-        <script src="../../js/search.js?1741607521" defer></script>
+        <script src="../../js/auto-complete.js?1741610053" defer></script>
+        <script src="../../js/lunr/lunr.min.js?1741610053" defer></script>
+        <script src="../../js/lunr/lunr.stemmer.support.min.js?1741610053" defer></script>
+        <script src="../../js/lunr/lunr.multi.min.js?1741610053" defer></script>
+        <script src="../../js/lunr/lunr.en.min.js?1741610053" defer></script>
+        <script src="../../js/search.js?1741610053" defer></script>
       </div>
       <div id="R-homelinks" class="default-animation homelinks">
         <ul>
@@ -329,8 +353,8 @@
         </div>
       </div>
     </aside>
-    <script src="../../js/clipboard.min.js?1741607521" defer></script>
-    <script src="../../js/perfect-scrollbar.min.js?1741607521" defer></script>
-    <script src="../../js/theme.js?1741607521" defer></script>
+    <script src="../../js/clipboard.min.js?1741610053" defer></script>
+    <script src="../../js/perfect-scrollbar.min.js?1741610053" defer></script>
+    <script src="../../js/theme.js?1741610053" defer></script>
   </body>
 </html>
